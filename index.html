@@ -1,4 +1,4 @@
-<html>
+<!-- <html> -->
     <html lang="en">
 
         <head>
@@ -7,19 +7,87 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link href="css/index.css" rel="stylesheet" type="text/css" />
             <link rel="icon" type="image/png" href="assets/icons/logo.ico">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
             <title>Les petits plats</title>
         </head>
 
         <body>
-            <header class="container">
-                <img src="assets/images/logo.png" alt="Les petits plats" height="96" />
-            </header>
-            <!-- <main></main> -->
-            <main>
+            <header class="container-header">
+                <h1 class="title-page">Les petits plats</h1>
+                <nav class="nav">
+                    <h2 class="title-header">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
 
+                    </h2>
+                    <div class="container-search">
+                        <input class="input-search" alt="Rechercher une recette un ingrédient..."
+                            placeholder="Rechercher une recette un ingrédient..." type="text" id="name" required
+                            minlength="4" maxlength="8" size="10" />
+                        <div class="icon-search">
+                            <div class="container-icon"> <img src="assets/images/icon-search.png" alt="icône chercher"
+                                    height="96" />
+                            </div>
+
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <main class="main">
+                <section class="filter-top-main">
+                    <div class="container-filters">
+                        <div class="dropdown">
+                            <div class="title pointerCursor active">Ingrédients <i class="fas fa-angle-down"></i></div>
+                            <div class='menu pointerCursor hide'>
+                                <div class="search-container">
+                                    <div class="inputIconContainer">
+                                    <input class="input-searchInput" type="text" id="searchInput"
+                                        placeholder="Rechercher...">
+                                    <span class="container-iconSearch"> <i class="fas fa-search"></i></span>
+                                    </div>
+                                </div>
+                            <div class="container-option">
+                                <div class='option' id='option1'>Jus de citron</div>
+                                <div class='option' id='option2'>Glaçons</div>
+                                <div class='option' id='option3'>Tomate</div>
+                                <div class='option' id='option4'>Poulet</div>
+                                <div class='option' id='option4'>Poivron rouge</div>
+                                <div class='option' id='option4'>Thon en miettes</div>
+                                <div class='option' id='option4'>Vinaigrette</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="container-numbersOfRecipes">1500 recettes</p>
+                </section>
+                <section class="card-recipes-bottom-main">
+                    <div class="card">
+                        <div class="container-top"> <img class="img-recipes" src="assets/recipes/Recette01.jpg"
+                                alt="recipes" />
+                            <span class="duration-recipes">10min</span>
+                        </div>
+                        <div class="container-bottom">
+                            <h3 class="name-title-recipes">Limonade de coco</h3>
+                            <div>
+                                <h4 class="title-recipes">Recette</h4>
+                                <p class="instructions-recipes">Mettre les glaçons à votre goût dans le blender.Ajouter le laut la crème de coco, je
+                                    jus
+                                    de 2 citrons et le sucre ensemble. Mixer jusqu'a obtenir la consistance désirée</p>
+                            </div>
+                            <div class="container-ingredients">
+                                <h5 class="title-ingredients">Ingrédients</h5>
+                                <div class="all-items-ingredients">
+                                    <p class="item-ingredients">Lait de coco<span>400ml</span></p>
+                                    <p class="item-ingredients">Jus de citron <span>2</span></p>
+                                    <p class="item-ingredients">Crème de coco<span>4 cuillères</span></p>
+                                    <p class="item-ingredients">Sucre<span>20g</span></p>
+                                    <p class="item-ingredients">Glaçons<span>2</span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
             <!-- Entry point -->
-            <!-- <script type="module" src="./scripts/pages/index.js"></script> -->
+            <script type="module" src="./scripts//pages//index.js"></script>
         </body>
 
     </html>

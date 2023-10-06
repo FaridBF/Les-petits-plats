@@ -1,10 +1,14 @@
-/*General Rules*/
-* {
+General Rules * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat';
 }
+
+html {
+  background-color: #ededed;
+}
+
 /*Afin que les images ne débordent jamais*/
 img {
   max-width: 100%;
@@ -21,5 +25,278 @@ body {
   background: white;
   color: #2e3333;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+/*header*/
+
+.container-header {
+  background-image: url('../assets//images//background-header.png');
+  background-size: cover;
+  height: 667px;
+  width: 100%;
+}
+
+.title-page {
+  color: white;
+  font-family: Anton;
+  font-size: 35px;
+  margin-left: 35px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-header {
+  color: #ffd15b;
+  display: flex;
+  align-items: center;
+  font-family: Anton;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 66px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 50%;
+}
+
+/*container rechercher*/
+
+.container-search {
+  position: relative;
+}
+
+.input-search {
+  width: 954px;
+  height: 72px;
+  border-radius: 11px;
+  color: #7a7a7a;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 30px;
+}
+
+.container-icon {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  padding: 12px;
+}
+
+.icon-search {
+  background-color: #1b1b1b;
+  width: 51px;
+  height: 52px;
+  position: absolute;
+  border-radius: 10px;
+  top: 10px;
+  right: 10px;
+}
+
+.main {
+  background-color: #ededed;
+  width: 100%;
+  display: flex;
+  height: 500px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-top-main {
+  /* height: 100px; */
+  width: 80%;
+  display: flex;
+  background-color: #ededed;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.container-filters {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-numbersOfRecipes {
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+/*Card pour les recettes*/
+
+.card-recipes-bottom-main {
+  height: 800px;
+  background-color: #ededed;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  width: 380px;
+  height: 731px;
+  border-radius: 21px;
+  background-color: white;
+}
+
+.container-top {
+  height: 253px;
+  position: relative;
+}
+
+.duration-recipes {
+  background-color: #ffd15b;
+  border-radius: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 5px 15px 5px 15px;
+}
+
+.img-recipes {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.container-bottom {
+  padding: 20px;
+}
+
+.name-title-recipes {
+  font-family: Anton;
+  font-size: 18px;
+  color: #000000;
+}
+
+.title-recipes,
+.title-ingredients {
+  color: #7a7a7a;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.instructions-recipes {
+  color: #1b1b1b;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.12px;
+}
+
+.all-items-ingredients {
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.item-ingredients {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+/** dropdown**/
+/* Style du conteneur */
+.hide {
+  max-height: 0 !important;
+}
+
+.dropdown {
+  border: 0.1em solid white;
+  padding: 15px;
+  margin-bottom: 1em;
+  border-radius: 11px;
+  cursor: pointer;
+  background-color: white;
+  margin-top: 15px;
+}
+
+.search-container {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.input-searchInput {
+  padding: 8px;
+}
+
+.inputIconContainer {
+  position: relative;
+}
+
+span.container-iconSearch {
+  position: absolute;
+  right: 5px;
+  top: 9px;
+}
+
+.dropdown .title {
+  width: 100%;
+}
+
+.title.pointerCursor {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 21.86px;
+  font-weight: 500;
+  font-family: Manrope;
+  justify-content: space-between;
+}
+
+.dropdown .menu {
+  transition: max-height 0.5s ease-out;
+  max-height: 20em;
+  overflow: hidden;
+}
+
+.dropdown .menu .option {
+  margin: 0.3em 0.3em 0.3em 0.3em;
+  margin-top: 0.3em;
+}
+
+.dropdown .menu .option:hover {
+  background: #ffd15b;
+}
+
+.pointerCursor:hover {
+  cursor: pointer;
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.option {
+  font-size: 14px;
+  line-height: 19.12px;
+  font-family: Manrope;
+  font-weight: 400;
+}
+
+/* Style de l'icône de chevron */
+.dropdown .title .fa-angle-down {
+  float: right;
+  margin-right: 0.7em;
+  transition: transform 0.3s;
+  margin: 0;
+}
+
+/* Lorsque le dropdown est actif (classe "active") */
+.dropdown.active .title .fa-angle-down {
+  transform: rotate(180deg);
+  margin: 0;
 }
