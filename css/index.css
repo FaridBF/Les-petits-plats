@@ -143,9 +143,10 @@ body {
 
 .card {
   width: 380px;
-  height: 731px;
+  height: 680px;
   border-radius: 21px;
   background-color: white;
+  margin-bottom: 50px;
 }
 
 .container-top {
@@ -196,15 +197,23 @@ body {
 
 .all-items-ingredients {
   display: flex;
-  width: 50%;
+  width: 70%;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .item-ingredients {
   display: flex;
   flex-direction: column;
   font-size: 14px;
+  line-height: 19.12px;
+  font-family: Manrope;
+  font-weight: 500;
+}
+
+.quantity-item-ingredients {
+  color: #7a7a7a;
 }
 
 /** dropdown**/
