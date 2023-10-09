@@ -31,18 +31,21 @@ body {
 
 /*header*/
 
+.container-logo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
 .container-header {
   background-image: url('../assets//images//background-header.png');
   background-size: cover;
   height: 667px;
   width: 100%;
-}
-
-.title-page {
-  color: white;
-  font-family: Anton;
-  font-size: 35px;
-  margin-left: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
 
 .nav {
@@ -224,21 +227,67 @@ body {
 
 .dropdown {
   border: 0.1em solid white;
-  padding: 15px;
+  /* padding: 15px; */
   margin-bottom: 1em;
   border-radius: 11px;
   cursor: pointer;
   background-color: white;
   margin-top: 15px;
+  width: 195px;
 }
 
-.search-container {
-  margin-top: 10px;
-  margin-bottom: 5px;
+.dropdown .menu {
+  transition: max-height 0.5s ease-out;
+  max-height: 20em;
+  overflow: hidden;
+}
+
+.dropdown .menu .option {
+  /* margin: 0.3em 0.3em 0.3em 0.3em; */
+  margin-top: 0.3em;
+  /* padding: 15px; */
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.dropdown .menu .option:hover {
+  background: #ffd15b;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  /* padding: 15px; */
+}
+
+.dropdown .title {
   width: 100%;
 }
 
+/* Style de l'icône de chevron */
+.dropdown .title .fa-angle-down {
+  float: right;
+  margin-right: 0.7em;
+  transition: transform 0.3s;
+  margin: 0;
+}
+
+/* Lorsque le dropdown est actif (classe "active") */
+.dropdown.active .title .fa-angle-down {
+  transform: rotate(180deg);
+  margin: 0;
+}
+
+.search-container {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
 .input-searchInput {
+  width: 100%;
   padding: 8px;
 }
 
@@ -252,10 +301,6 @@ span.container-iconSearch {
   top: 9px;
 }
 
-.dropdown .title {
-  width: 100%;
-}
-
 .title.pointerCursor {
   display: flex;
   align-items: center;
@@ -266,19 +311,9 @@ span.container-iconSearch {
   justify-content: space-between;
 }
 
-.dropdown .menu {
-  transition: max-height 0.5s ease-out;
-  max-height: 20em;
-  overflow: hidden;
-}
-
-.dropdown .menu .option {
-  margin: 0.3em 0.3em 0.3em 0.3em;
-  margin-top: 0.3em;
-}
-
-.dropdown .menu .option:hover {
-  background: #ffd15b;
+.title.pointerCursor {
+  padding: 15px;
+  width: 85%;
 }
 
 .pointerCursor:hover {
@@ -294,18 +329,4 @@ span.container-iconSearch {
   line-height: 19.12px;
   font-family: Manrope;
   font-weight: 400;
-}
-
-/* Style de l'icône de chevron */
-.dropdown .title .fa-angle-down {
-  float: right;
-  margin-right: 0.7em;
-  transition: transform 0.3s;
-  margin: 0;
-}
-
-/* Lorsque le dropdown est actif (classe "active") */
-.dropdown.active .title .fa-angle-down {
-  transform: rotate(180deg);
-  margin: 0;
 }
