@@ -69,8 +69,18 @@ body {
 
 /*container rechercher*/
 
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
 .container-search {
   position: relative;
+}
+
+span#clearInput {
+  position: absolute;
+  right: 75px;
 }
 
 .input-search {

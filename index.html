@@ -19,9 +19,13 @@
 
                 </h2>
                 <div class="container-search">
-                    <input class="input-search" alt="Rechercher une recette un ingrédient..."
-                        placeholder="Rechercher une recette un ingrédient..." type="text" id="name" required
-                        minlength="4" maxlength="8" size="10" />
+                    <div class="input-container">
+                        <input class="input-search" alt="Rechercher une recette un ingrédient..."
+                            placeholder="Rechercher une recette un ingrédient..." type="text" id="name" required
+                            minlength="4" maxlength="15" size="10" />
+                        <span class="clear-input" id="clearInput"><img src="assets/icons/icon-close.png"
+                                alt="icône fermer" /></span>
+                    </div>
                     <div class="icon-search">
                         <div class="container-icon"> <img src="assets/images/icon-search.png" alt="icône chercher"
                                 height="96" />
@@ -102,6 +106,7 @@
             </section>
         </main>
         <!-- Entry point -->
+        <script type="module" src="./scripts//utils//clearInput.js"></script>
         <script type="module" src="./scripts//pages//index.js"></script>
     </body>
 
