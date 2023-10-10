@@ -67,7 +67,7 @@ body {
   width: 50%;
 }
 
-/*container rechercher*/
+/*container rechercher nav*/
 
 .input-container {
   display: flex;
@@ -78,9 +78,31 @@ body {
   position: relative;
 }
 
-span#clearInput {
+.clear-inputNav {
   position: absolute;
   right: 75px;
+  display: none;
+}
+
+/*container rechercher filters*/
+
+.inputIconContainer {
+  display: flex;
+  align-items: center;
+}
+
+.inputIconContainer {
+  position: relative;
+}
+
+.closeInputFilter {
+  width: 70%;
+}
+
+.clear-inputFilter {
+  display: none;
+  position: absolute;
+  right: 25px;
 }
 
 .input-search {
@@ -296,7 +318,7 @@ span#clearInput {
   justify-content: center;
 }
 
-.input-searchInput {
+.input-searchInputFilter {
   width: 100%;
   padding: 8px;
 }
