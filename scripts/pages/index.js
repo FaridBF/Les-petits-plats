@@ -14,13 +14,6 @@ const dropdownOptions = document.querySelectorAll('.dropdown .option');
 
 //bind listeners to these elements
 dropdownTitle.addEventListener('click', toggleMenuDisplay);
-dropdownOptions.forEach((option) =>
-  option.addEventListener('click', handleOptionSelected)
-);
-document
-  .querySelector('.dropdown .title')
-  .addEventListener('change', handleTitleChange);
-
 function toggleMenuDisplay(e) {
   const dropdown = e.currentTarget.parentNode;
   const menu = dropdown.querySelector('.menu');
@@ -30,3 +23,11 @@ function toggleMenuDisplay(e) {
   toggleClass(icon, 'rotate-90');
   toggleClass(dropdown, 'active'); // Ajoute/Supprime la classe "active" sur le conteneur dropdown
 }
+
+//selectionne l'élément de l'input filter et le récupère dans la value input
+document.querySelector('.container-option').addEventListener('click', (e) => {
+  const optionLabel = e.target.textContent;
+  const searchInput = document.querySelector('.input-searchInputFilter');
+  console.dir(searchInput);
+  searchInput.value = optionLabel;
+});
