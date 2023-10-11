@@ -191,9 +191,7 @@ p.result-option {
 }
 
 .clear-inputOption {
-  /* position: absolute;
-  right: 75px;
-  display: none; */
+  cursor: pointer;
 }
 
 /*Card pour les recettes*/
