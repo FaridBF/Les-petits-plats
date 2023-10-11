@@ -18,3 +18,4 @@ const cleanInput = (inputID, clearInputID) => {
 
 cleanInput('inputNav', 'clearInputNav');
 cleanInput('searchInputFilter', 'clearInputFilter');
+// cleanInput('clearInputOption');
