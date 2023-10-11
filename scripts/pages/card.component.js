@@ -1806,7 +1806,7 @@ const recipeCardTemplate = `
 
 // Fonction pour remplacer les espaces réservés dans le modèle
 function fillRecipeCardTemplate(template, data) {
-  console.log('data.id', data.id);
+  // console.log('data.id', data.id);
   return template
     .replace('{{id}}', data.id)
     .replace('{{time}}', data.time)
