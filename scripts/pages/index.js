@@ -1,24 +1,15 @@
-// La fonction toggleClass reste inchangée
-function toggleClass(elem, className) {
-  if (elem.className.indexOf(className) !== -1) {
-    elem.className = elem.className.replace(className, '');
+// Fonction pour ajouter ou supprimer une classe CSS
+function toggleClass(element, className) {
+  if (element.classList.contains(className)) {
+    element.classList.remove(className);
   } else {
-    elem.className = elem.className.replace(/\s+/g, ' ') + ' ' + className;
+    element.classList.add(className);
   }
-
-  return elem;
 }
 
-// Sélection des éléments du DOM
-const dropdownTitle = document.querySelector('.dropdown .title');
-const dropdownOptions = document.querySelectorAll('.dropdown .option');
-const clearInputOption = document.getElementById('clearInputOption'); // Ajout de la sélection de l'icône "fermer"
-
-// Ajout d'un gestionnaire d'événements sur le titre pour ouvrir/fermer le menu
-dropdownTitle.addEventListener('click', toggleMenuDisplay);
-
-function toggleMenuDisplay(e) {
-  const dropdown = e.currentTarget.parentNode;
+// Fonction pour ouvrir/fermer le menu
+function toggleMenuDisplay(event) {
+  const dropdown = event.currentTarget.closest('.dropdown');
   const menu = dropdown.querySelector('.menu');
   const icon = dropdown.querySelector('.fa-angle-down');
 
@@ -27,17 +18,17 @@ function toggleMenuDisplay(e) {
   toggleClass(dropdown, 'active');
 }
 
-// Ajout d'un gestionnaire d'événements pour supprimer l'ingrédient au clic sur l'icône "fermer"
-clearInputOption.addEventListener('click', () => {
+// Fonction pour masquer la div au lieu de la supprimer
+function hideResultOption() {
   const containerResultOption = document.querySelector(
     '.container-result-option'
   );
-  containerResultOption.style.display = 'none'; // Masquer la div au lieu de la supprimer
-});
+  containerResultOption.style.display = 'none';
+}
 
-// Sélection de l'élément de l'input filter et gestion de l'événement de clic sur une option
-document.querySelector('.container-option').addEventListener('click', (e) => {
-  const optionLabel = e.target.textContent;
+// Fonction pour gérer le clic sur une option
+function handleOptionClick(event) {
+  const optionLabel = event.target.textContent;
   const searchInput = document.querySelector('.input-searchInputFilter');
   searchInput.value = optionLabel;
 
@@ -47,14 +38,27 @@ document.querySelector('.container-option').addEventListener('click', (e) => {
   });
 
   const resultOption = document.querySelector('.result-option');
-  resultOption.textContent = `${searchInput.value}`;
+  resultOption.textContent = searchInput.value;
   const containerResultOption = document.querySelector(
     '.container-result-option'
   );
   containerResultOption.style.display = 'block';
-});
+}
 
-// rechercher les recettes via les ingrédients dans l'input nav
-document.querySelector('#inputNav').addEventListener('keyup', function () {
-  console.log(this.value);
-});
+// Sélection des éléments du DOM
+const dropdownTitle = document.querySelector('.dropdown .title');
+const clearInputOption = document.getElementById('clearInputOption');
+
+// Ajout des gestionnaires d'événements
+if (dropdownTitle) {
+  dropdownTitle.addEventListener('click', toggleMenuDisplay);
+}
+
+if (clearInputOption) {
+  clearInputOption.addEventListener('click', hideResultOption);
+}
+
+const containerOption = document.querySelector('.container-option');
+if (containerOption) {
+  containerOption.addEventListener('click', handleOptionClick);
+}
