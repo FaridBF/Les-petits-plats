@@ -81,3 +81,56 @@ function fillIngredients(ingredients) {
     )
     .join('');
 }
+
+// Mise en place du filtre pour la recherche
+document.querySelector('#inputNav').addEventListener('keyup', function () {
+  const searchTerm = this.value.toLowerCase(); // Converti la saisie en minuscules pour une correspondance insensible à la casse
+
+  // Sélectionne toutes les cartes de recettes
+  const recipeCards = document.querySelectorAll('.card');
+  let anyMatchFound = false; // Utilise un indicateur pour vérifier si une correspondance a été trouvée
+
+  recipeCards.forEach((card) => {
+    const title = card
+      .querySelector('.name-title-recipes')
+      .textContent.toLowerCase();
+    const description = card
+      .querySelector('.instructions-recipes')
+      .textContent.toLowerCase();
+    const ingredientNames = card.querySelectorAll('.item-ingredients');
+
+    let matchFound = false;
+
+    // Vérifie si la valeur saisie correspond à un titre, à la description ou à un ingrédient de la carte
+    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+      matchFound = true;
+    } else {
+      ingredientNames.forEach((ingredient) => {
+        const ingredientText = ingredient.textContent.toLowerCase();
+        if (ingredientText.includes(searchTerm)) {
+          matchFound = true;
+        }
+      });
+    }
+
+    // Affiche ou masque la carte en fonction de la correspondance
+    if (matchFound) {
+      card.style.display = 'block';
+      anyMatchFound = true; // Une correspondance a été trouvée
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Affiche un message d'aucune correspondance avec le terme de recherche inclus
+  const noMatchMessage = document.querySelector('.no-match-message');
+  const searchTermElement = noMatchMessage.querySelector('#searchTerm');
+
+  if (!anyMatchFound) {
+    noMatchMessage.style.display = 'block';
+    searchTermElement.textContent = searchTerm;
+  } else {
+    noMatchMessage.style.display = 'none';
+    searchTermElement.textContent = ''; // Réinitialisez le terme de recherche si des correspondances ont été trouvées
+  }
+});

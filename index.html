@@ -20,7 +20,7 @@
                     <div class="input-container">
                         <input class="input-search" alt="Rechercher une recette un ingrédient..."
                             placeholder="Rechercher une recette un ingrédient..." type="text" id="inputNav" required
-                            minlength="4" maxlength="15" size="10" />
+                            minlength="4" maxlength="25" size="10" />
                         <span class="clear-inputNav" id="clearInputNav"><img src="assets/icons/icon-close.png"
                                 alt="Fermer" /></span>
                     </div>
@@ -32,6 +32,15 @@
                     </div>
                 </div>
             </nav>
+            <div class="no-match-message" style="display: none;">
+                <div class="container-info-no-match-message">
+                    <p class="info-no-match-message"> Aucune recette ne contient '<span id="searchTerm"></span>', vous
+                        pouvez chercher « tarte aux pommes
+                        », «
+                        poisson », etc.</p>
+                </div>
+
+            </div>
         </header>
         <main class="main">
             <section class="filter-top-main">
