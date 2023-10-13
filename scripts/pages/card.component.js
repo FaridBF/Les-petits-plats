@@ -1822,8 +1822,12 @@ function fillIngredients(ingredients) {
       (ingredient) => `
         <div class="container-left-item-ingredients">
           <p class="item-ingredients">${ingredient.ingredient}
-          ${ingredient.quantity ? ingredient.quantity : ''}
-          ${ingredient.unit ? ingredient.unit : ''}
+          <span class="ingredient-quantity">${
+            ingredient.quantity ? ingredient.quantity : ''
+          }<span/>
+          <span class="ingredient-unit">${
+            ingredient.unit ? ingredient.unit : ''
+          }<span/>
           </p>
         </div>
       `

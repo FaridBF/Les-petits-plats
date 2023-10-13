@@ -36,27 +36,37 @@
         <main class="main">
             <section class="filter-top-main">
                 <div class="container-filters">
-                    <div class="dropdown">
-                        <div class="title pointerCursor active">Ingrédients <i class="fas fa-angle-down"></i></div>
-                        <div class='menu pointerCursor hide'>
-                            <div class="search-container">
-                                <div class="inputIconContainer">
-                                    <input class="input-searchInputFilter" type="text" id="searchInputFilter"
-                                        placeholder="Rechercher...">
-                                    <span class="clear-inputFilter" id="clearInputFilter"><img class="closeInputFilter"
-                                            src="assets/icons/icon-close.png" alt="Fermer" /></span>
-                                    <span class="container-iconSearch"> <i class="fas fa-search"></i></span>
-                                </div>
+                    <div class="container-dropdown">
+                        <div class="dropdown">
+                            <div class="title pointerCursor active">Ingrédients <i class="fas fa-angle-down"></i></div>
+                            <div class='menu pointerCursor hide'>
+                                <div class="search-container">
+                                    <div class="inputIconContainer">
+                                        <input class="input-searchInputFilter" type="text" id="searchInputFilter"
+                                            placeholder="Rechercher...">
+                                        <span class="clear-inputFilter" id="clearInputFilter"><img
+                                                class="closeInputFilter" src="assets/icons/icon-close.png"
+                                                alt="Fermer" /></span>
+                                        <span class="container-iconSearch"> <i class="fas fa-search"></i></span>
+                                    </div>
 
+                                </div>
+                                <div class="container-options-ingredients">
+                                    <div class='option' id='option1'>Jus de citron</div>
+                                    <div class='option' id='option2'>Glaçons</div>
+                                    <div class='option' id='option3'>Tomate</div>
+                                    <div class='option' id='option4'>Poulet</div>
+                                    <div class='option' id='option4'>Poivron rouge</div>
+                                    <div class='option' id='option4'>Thon en miettes</div>
+                                    <div class='option' id='option4'>Vinaigrette</div>
+                                </div>
                             </div>
-                            <div class="container-options-ingredients">
-                                <div class='option' id='option1'>Jus de citron</div>
-                                <div class='option' id='option2'>Glaçons</div>
-                                <div class='option' id='option3'>Tomate</div>
-                                <div class='option' id='option4'>Poulet</div>
-                                <div class='option' id='option4'>Poivron rouge</div>
-                                <div class='option' id='option4'>Thon en miettes</div>
-                                <div class='option' id='option4'>Vinaigrette</div>
+                        </div>
+                        <div class="container-result-option">
+                            <div class="container-text">
+                                <p class="result-option"></p>
+                                <span id="clearInputOption" class="clear-inputOption">
+                                    <img src="assets/icons/icon-close.png" alt="Fermer" /></span>
                             </div>
                         </div>
                     </div>
@@ -86,7 +96,7 @@
                         </div>
                     </div>
 
-                    <div class="dropdown">
+                    <!-- <div class="dropdown">
                         <div class="title pointerCursor active">Ustensiles <i class="fas fa-angle-down"></i></div>
                         <div class='menu pointerCursor hide'>
                             <div class="search-container">
@@ -109,18 +119,7 @@
                                 <div class='utensil' id='utensil7'>Jus de citron</div>
                             </div>
                         </div>
-                    </div>
-
-
-
-                    <div class="container-result-option">
-                        <div class="container-text">
-                            <p class="result-option"></p>
-                            <span id="clearInputOption" class="clear-inputOption">
-                                <img src="assets/icons/icon-close.png" alt="Fermer" /></span>
-                        </div>
-
-                    </div>
+                    </div> -->
                 </div>
                 <p class="container-numbersOfRecipes">1500 recettes</p>
             </section>
@@ -132,6 +131,7 @@
         <script type="module" src="./scripts//utils//clearInput.js"></script>
         <script type="module" src="./scripts//pages//index.js"></script>
         <script type="module" src="./scripts//pages//card.component.js"></script>
+        <script type="module" src="./scripts//pages//dropdown.component.js"></script>
     </body>
 
 </html>

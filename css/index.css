@@ -154,10 +154,10 @@ body {
 }
 
 .container-filters {
-  width: 500px;
+  width: 735px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  flex-direction: column;
 }
 
 .container-numbersOfRecipes {
@@ -253,6 +253,14 @@ p.result-option {
   font-size: 12px;
 }
 
+h4.title-recipes {
+  text-transform: uppercase;
+}
+
+h5.title-ingredients {
+  text-transform: uppercase;
+}
+
 .instructions-recipes {
   color: #1b1b1b;
   font-family: Manrope;
@@ -261,25 +269,40 @@ p.result-option {
   line-height: 19.12px;
 }
 
+p.instructions-recipes {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .all-items-ingredients {
   display: flex;
-  width: 70%;
-  flex-direction: row;
+  width: 100%;
+  height: 13rem;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .item-ingredients {
   display: flex;
   flex-direction: column;
   font-size: 14px;
-  line-height: 19.12px;
   font-family: Manrope;
   font-weight: 500;
 }
 
 .quantity-item-ingredients {
   color: #7a7a7a;
+}
+
+span.ingredient-quantity {
+  font-size: 14px;
+  font-weight: 400;
+  color: #7a7a7a;
+  font-family: Manrope;
 }
 
 /** dropdown**/
