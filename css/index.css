@@ -284,6 +284,7 @@ p.instructions-recipes {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-top: -15px;
 }
 
 .item-ingredients {
@@ -414,6 +415,144 @@ span.container-iconSearch {
   line-height: 19.12px;
   font-family: Manrope;
   font-weight: 400;
+}
+
+/** dropdown device**/
+/* Style du conteneur */
+.hideDevice {
+  max-height: 0 !important;
+}
+
+.dropdown-device {
+  border: 0.1em solid white;
+  margin-bottom: 1em;
+  border-radius: 11px;
+  cursor: pointer;
+  background-color: white;
+  margin-top: 15px;
+  width: 200px;
+}
+
+.dropdown-device .menu-device {
+  transition: max-height 0.5s ease-out;
+  max-height: 20em;
+  overflow: hidden;
+}
+
+.dropdown-device .menu-device .option-device {
+  /* margin: 0.3em 0.3em 0.3em 0.3em; */
+  margin-top: 0.3em;
+  /* padding: 15px; */
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.dropdown-device .menu-device .option-device:hover {
+  background: #ffd15b;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  /* padding: 15px; */
+}
+
+.dropdown-device .title-device {
+  width: 100%;
+}
+
+/* Style de l'icône de chevron */
+.dropdown-device .title-device .fa-angle-down {
+  float: right;
+  margin-right: 0.7em;
+  transition: transform 0.3s;
+  margin: 0;
+}
+
+/* Lorsque le dropdown est actif (classe "active") */
+.dropdown-device.activeDevice .title-device .fa-angle-down {
+  transform: rotate(180deg);
+  margin: 0;
+}
+
+.search-container-device {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.input-searchInputFilterDevice {
+  width: 100%;
+  padding: 8px;
+}
+
+.inputIconContainerDevice {
+  position: relative;
+}
+
+span.container-iconSearchDevice {
+  position: absolute;
+  right: 5px;
+  top: 9px;
+}
+
+.title-device.pointerCursorDevice {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 21.86px;
+  font-weight: 500;
+  font-family: Manrope;
+  justify-content: space-between;
+}
+
+.title-device.pointerCursorDevice {
+  padding: 15px;
+  width: 85%;
+}
+
+.pointerCursor-device:hover {
+  cursor: pointer;
+}
+
+.rotateDevice-90 {
+  transform: rotate(90deg);
+}
+
+.option-device {
+  font-size: 14px;
+  line-height: 19.12px;
+  font-family: Manrope;
+  font-weight: 400;
+}
+
+/*container result option device*/
+
+.container-result-option-device {
+  width: 203px;
+  height: 53px;
+  background-color: #ffd15b;
+  border-radius: 10px;
+  display: none;
+}
+
+p.result-option-device {
+  display: flex;
+  justify-content: center;
+}
+
+.container-text-device {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.clear-inputOptionDevice {
+  cursor: pointer;
 }
 
 /*info no match message*/
