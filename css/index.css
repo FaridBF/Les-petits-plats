@@ -98,6 +98,7 @@ body {
 
 .closeInputFilter {
   width: 70%;
+  display: none;
 }
 
 .clear-inputFilter {
@@ -552,6 +553,144 @@ p.result-option-device {
 }
 
 .clear-inputOptionDevice {
+  cursor: pointer;
+}
+
+/** dropdown ustensil**/
+/* Style du conteneur */
+.hideUstensil {
+  max-height: 0 !important;
+}
+
+.dropdown-ustensil {
+  border: 0.1em solid white;
+  margin-bottom: 1em;
+  border-radius: 11px;
+  cursor: pointer;
+  background-color: white;
+  margin-top: 15px;
+  width: 200px;
+}
+
+.dropdown-ustensil .menu-ustensil {
+  transition: max-height 0.5s ease-out;
+  max-height: 20em;
+  overflow: hidden;
+}
+
+.dropdown-ustensil .menu-ustensil .option-ustensil {
+  /* margin: 0.3em 0.3em 0.3em 0.3em; */
+  margin-top: 0.3em;
+  /* padding: 15px; */
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.dropdown-ustensil .menu-ustensil .option-ustensil:hover {
+  background: #ffd15b;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  /* padding: 15px; */
+}
+
+.dropdown-ustensil .title-ustensil {
+  width: 100%;
+}
+
+/* Style de l'icône de chevron */
+.dropdown-ustensil .title-ustensil .fa-angle-down {
+  float: right;
+  margin-right: 0.7em;
+  transition: transform 0.3s;
+  margin: 0;
+}
+
+/* Lorsque le dropdown est actif (classe "active") */
+.dropdown-ustensil.activeUstensil .title-ustensil .fa-angle-down {
+  transform: rotate(180deg);
+  margin: 0;
+}
+
+.search-container-ustensil {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.input-searchInputFilterUstensil {
+  width: 100%;
+  padding: 8px;
+}
+
+.inputIconContainerUstensil {
+  position: relative;
+}
+
+span.container-iconSearchUstensil {
+  position: absolute;
+  right: 5px;
+  top: 9px;
+}
+
+.title-ustensil.pointerCursorUstensil {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 21.86px;
+  font-weight: 500;
+  font-family: Manrope;
+  justify-content: space-between;
+}
+
+.title-ustensil.pointerCursorUstensil {
+  padding: 15px;
+  width: 85%;
+}
+
+.pointerCursor-ustensil:hover {
+  cursor: pointer;
+}
+
+.rotateUstensil-90 {
+  transform: rotate(90deg);
+}
+
+.option-ustensil {
+  font-size: 14px;
+  line-height: 19.12px;
+  font-family: Manrope;
+  font-weight: 400;
+}
+
+/*container result option ustensil*/
+
+.container-result-option-ustensil {
+  width: 203px;
+  height: 53px;
+  background-color: #ffd15b;
+  border-radius: 10px;
+  display: none;
+}
+
+p.result-option-ustensil {
+  display: flex;
+  justify-content: center;
+}
+
+.container-text-ustensil {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.clear-inputOptionUstensil {
   cursor: pointer;
 }
 
