@@ -7,16 +7,16 @@ recipeApi
   .then((recipesData) => {
     // Récupérez tous les ingrédients de chaque recette et aplatissez le tableau
     const allIngredients = recipesData.flatMap((recipe) => recipe.ingredients);
-    console.log('allIngredients', allIngredients);
+    // console.log('allIngredients', allIngredients);
     // Utilisez un ensemble pour éliminer les doublons
     const uniqueIngredientsSet = new Set(
       allIngredients.map((item) => item.ingredient)
     );
-    console.log('uniqueIngredientsSet', uniqueIngredientsSet);
+    // console.log('uniqueIngredientsSet', uniqueIngredientsSet);
 
     // Convertissez l'ensemble en tableau
     const uniqueIngredients = [...uniqueIngredientsSet];
-    console.log('uniqueIngredients', uniqueIngredients);
+    // console.log('uniqueIngredients', uniqueIngredients);
 
     // Sélectionnez le conteneur d'options
     const ingredientOptionsContainer =
@@ -87,7 +87,7 @@ recipeApi
     // Convertissez l'ensemble en tableau
     const uniqueUstensils = [...uniqueUstensilsSet];
 
-    // console.log('uniqueUstensils', uniqueUstensils);
+    console.log('uniqueUstensils', uniqueUstensils);
 
     // Sélectionnez le conteneur d'options
     const ustensilsOptionsContainer =
@@ -97,7 +97,10 @@ recipeApi
     uniqueUstensils.forEach((option) => {
       const optionElement = document.createElement('div');
       optionElement.classList.add('option-ustensil');
-      optionElement.textContent = option;
+      optionElement.textContent =
+        option.charAt(0).toUpperCase() + option.slice(1);
+
+      // optionElement.textContent = option;
       ustensilsOptionsContainer.appendChild(optionElement);
     });
 
