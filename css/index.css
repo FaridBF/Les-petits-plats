@@ -388,6 +388,11 @@ span.container-iconSearch {
   top: 9px;
 }
 
+.container-option {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
 .title.pointerCursor {
   display: flex;
   align-items: center;
@@ -497,6 +502,11 @@ span.container-iconSearchDevice {
   position: absolute;
   right: 5px;
   top: 9px;
+}
+
+.container-option-device {
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .title-device.pointerCursorDevice {
@@ -635,6 +645,11 @@ span.container-iconSearchUstensil {
   position: absolute;
   right: 5px;
   top: 9px;
+}
+
+.container-option-ustensil {
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .title-ustensil.pointerCursorUstensil {
