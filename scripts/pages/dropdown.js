@@ -1,5 +1,4 @@
 import RecipesApi from '/scripts/api/Api.js';
-const recipeApi = new RecipesApi('../../data/recipes.json');
 
 // Fonction pour filtrer les options d'ingrédients
 function filterIngredientOptions() {
