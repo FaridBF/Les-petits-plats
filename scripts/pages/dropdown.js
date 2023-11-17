@@ -1,6 +1,16 @@
+/**
+ * Classe représentant une API pour récupérer des données de recettes.
+ * @class
+ */
 import RecipesApi from '/scripts/api/Api.js';
 
-// Fonction pour filtrer les options
+/**
+ * Fonction pour filtrer et afficher les options.
+ * @param {string} searchInputId - L'ID de l'élément d'entrée de recherche.
+ * @param {string} optionsContainerId - L'ID du conteneur des options à afficher.
+ * @param {string} optionClass - La classe des options à manipuler.
+ * @param {Function} mapFunction - La fonction de mapping pour extraire les options.
+ */
 function filterOptions(
   searchInputId,
   optionsContainerId,
@@ -12,12 +22,14 @@ function filterOptions(
 
   const apiCall = new RecipesApi('../../data/recipes.json');
 
-  // Fonction pour réinitialiser l'input au moment de l'ouverture du dropdown
+  /**
+   * Réinitialise la valeur de l'input lorsque le dropdown est ouvert.
+   */
   function resetInputOnDropdownOpen() {
     searchInput.value = ''; // Réinitialisez la valeur de l'input
   }
 
-  // Écoutez l'événement qui ouvre le dropdown et appelez la fonction de réinitialisation
+  // Écoute l'événement qui ouvre le dropdown et appelle la fonction de réinitialisation
   optionsContainer.parentElement.addEventListener(
     'click',
     resetInputOnDropdownOpen
@@ -59,10 +71,16 @@ function filterOptions(
 }
 
 // Appels pour filtrer les options d'ingrédients, d'appareils et d'ustensiles
+/**
+ * Filtre et affiche les options d'ingrédients.
+ */
 filterOptions('searchInputFilter', 'ingredientOptions', 'option', (recipe) =>
   recipe.ingredients.map((item) => item.ingredient.toLowerCase())
 );
 
+/**
+ * Filtre et affiche les options d'appareils.
+ */
 filterOptions(
   'searchInputFilterDevice',
   'applianceOptions',
@@ -70,6 +88,9 @@ filterOptions(
   (recipe) => recipe.appliance
 );
 
+/**
+ * Filtre et affiche les options d'ustensiles.
+ */
 filterOptions(
   'searchInputFilterUstensil',
   'ustensilOptions',

@@ -1,8 +1,16 @@
-// Utilisez la classe RecipesApi pour récupérer les données de recettes
+/**
+ * Classe représentant une API pour récupérer des données de recettes.
+ * @class
+ */
 import RecipesApi from '/scripts/api/Api.js';
 
 const recipeApi = new RecipesApi('../../data/recipes.json');
 
+/**
+ * Récupère les données de recettes, crée des cartes HTML et les ajoute au conteneur.
+ * @method
+ * @returns {Promise} - Les données de recettes sous forme de cartes HTML.
+ */
 recipeApi
   .getRecipes()
   .then((recipesData) => {
@@ -26,10 +34,16 @@ recipeApi
     );
   });
 
-// Sélectionnez l'élément où vous souhaitez ajouter la carte
+/**
+ * Sélectionne l'élément où vous souhaitez ajouter la carte.
+ * @type {HTMLElement}
+ */
 const cardContainer = document.querySelector('.card-recipes-bottom-main');
 
-// Modèle HTML pour une carte de recette
+/**
+ * Modèle HTML pour une carte de recette.
+ * @type {string}
+ */
 const recipeCardTemplate = `
     <div class="card">
       <div class="container-top">
@@ -52,8 +66,14 @@ const recipeCardTemplate = `
     </div>
   `;
 
-// Fonction pour remplacer les espaces réservés dans le modèle
+/**
+ * Remplace les espaces réservés dans le modèle de carte de recette avec les données.
+ * @param {string} template - Le modèle de carte de recette.
+ * @param {object} data - Les données de la recette à insérer dans le modèle.
+ * @returns {string} - Le modèle de carte rempli avec les données.
+ */
 function fillRecipeCardTemplate(template, data) {
+  // Logique pour remplir le modèle de carte avec les données
   return template
     .replace('{{id}}', data.id)
     .replace('{{time}}', data.time)
@@ -62,8 +82,13 @@ function fillRecipeCardTemplate(template, data) {
     .replace('{{ingredients}}', fillIngredients(data.ingredients));
 }
 
-// Fonction pour remplir la section des ingrédients
+/**
+ * Remplit la section des ingrédients dans la carte de recette.
+ * @param {Array<object>} ingredients - Les ingrédients de la recette.
+ * @returns {string} - La section des ingrédients remplie.
+ */
 function fillIngredients(ingredients) {
+  // Logique pour remplir la section des ingrédients
   return ingredients
     .map(
       (ingredient) => `
@@ -82,8 +107,12 @@ function fillIngredients(ingredients) {
     .join('');
 }
 
-// Mise en place du filtre pour la recherche
+/**
+ * Met en place un filtre pour la recherche des recettes.
+ * @event
+ */
 document.querySelector('#inputNav').addEventListener('keyup', function () {
+  // Logique pour filtrer les cartes de recettes en fonction du terme de recherche
   const searchTerm = this.value.toLowerCase(); // Converti la saisie en minuscules pour une correspondance insensible à la casse
 
   // Sélectionne toutes les cartes de recettes
