@@ -163,3 +163,28 @@ document.querySelector('#inputNav').addEventListener('keyup', function () {
     searchTermElement.textContent = ''; // Réinitialisez le terme de recherche si des correspondances ont été trouvées
   }
 });
+
+//////////////////////////////////////////////////TEST pour récupérer
+//la valeur selectionée de ingredients appareil et ustensile
+// Fonction générique pour obtenir la valeur sélectionnée
+const getValueSelect = (options, resultClass) => {
+  let selectedValue = null;
+  options.forEach((option) => {
+    option.addEventListener('click', () => {
+      const oneOption = document.querySelector(`.${resultClass}`);
+      selectedValue = oneOption.innerHTML;
+      console.log(`Selected ${resultClass}:`, selectedValue);
+      // Vous pouvez faire d'autres actions avec la valeur sélectionnée ici
+    });
+  });
+};
+
+// Sélection des options pour chaque type
+const ingredientsOptions = document.querySelectorAll('.container-option');
+const deviceOptions = document.querySelectorAll('.container-option-device');
+const ustensilOptions = document.querySelectorAll('.container-option-ustensil');
+
+// Appel de la fonction pour chaque type d'option
+getValueSelect(ingredientsOptions, 'result-option');
+getValueSelect(deviceOptions, 'result-option-device');
+getValueSelect(ustensilOptions, 'result-option-ustensil');
