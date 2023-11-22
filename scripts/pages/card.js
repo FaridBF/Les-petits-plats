@@ -164,17 +164,35 @@ document.querySelector('#inputNav').addEventListener('keyup', function () {
   }
 });
 
-//////////////////////////////////////////////////TEST pour récupérer
-//la valeur selectionée de ingredients appareil et ustensile
-// Fonction générique pour obtenir la valeur sélectionnée
+// Fonction pour filtrer les cartes en fonction de l'option sélectionnée dans le dropdown
+function filterByDropdownOption(selectedValue) {
+  const recipeCards = document.querySelectorAll('.card');
+  recipeCards.forEach((card) => {
+    const ingredientNames = card.querySelectorAll('.item-ingredients');
+    let matchFound = false;
+
+    ingredientNames.forEach((ingredient) => {
+      const ingredientText = ingredient.textContent.toLowerCase();
+      if (ingredientText.includes(selectedValue)) {
+        matchFound = true;
+      }
+    });
+
+    if (matchFound || selectedValue === 'Tous') {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Fonction pour obtenir la valeur sélectionnée du dropdown et déclencher le filtrage
 const getValueSelect = (options, resultClass) => {
-  let selectedValue = null;
   options.forEach((option) => {
     option.addEventListener('click', () => {
       const oneOption = document.querySelector(`.${resultClass}`);
-      selectedValue = oneOption.innerHTML;
-      console.log(`Selected ${resultClass}:`, selectedValue);
-      // Vous pouvez faire d'autres actions avec la valeur sélectionnée ici
+      const selectedValue = oneOption.innerHTML.toLowerCase();
+      filterByDropdownOption(selectedValue);
     });
   });
 };
