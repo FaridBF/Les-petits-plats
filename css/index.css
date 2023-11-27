@@ -288,7 +288,7 @@ p.instructions-recipes {
   margin-top: -15px;
 }
 
-.item-ingredients {
+.ingredient-name {
   display: flex;
   flex-direction: column;
   font-size: 14px;

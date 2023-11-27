@@ -75,7 +75,7 @@ if (containerOption) {
   containerOption.addEventListener('click', handleOptionClick);
 }
 
-////////container devices
+// ---- container devices ---- //
 
 // Fonction pour ajouter ou supprimer une classe CSS
 function toggleClassDevice(element, className) {
@@ -189,7 +189,7 @@ function hideResultOptionUstensil() {
 
 /**
  * Fonction pour gérer le clic sur une option d'ustensil, met à jour les éléments HTML correspondants.
- * @param {MouseEvent} event - L'événement de clic déclencheur de la fonction.
+ * @param {MouseEvent} event - L'événement déclencheur de la fonction.
  */
 function handleOptionClickUstensil(event) {
   const optionLabelUstensil = event.target.textContent;

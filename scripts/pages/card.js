@@ -9,12 +9,11 @@ const recipeApi = new RecipesApi('../../data/recipes.json');
 /**
  * Récupère les données de recettes, crée des cartes HTML et les ajoute au conteneur.
  * @method
- * @returns {Promise} - Les données de recettes sous forme de cartes HTML.
+ * @returns {Promise} - Les données de recettes
  */
 recipeApi
   .getRecipes()
   .then((recipesData) => {
-    // Créez des cartes à partir des données de recettes
     const recipeCards = recipesData.map((recipe) => {
       const filledTemplate = fillRecipeCardTemplate(recipeCardTemplate, recipe);
       const card = document.createElement('div');
@@ -22,7 +21,7 @@ recipeApi
       return card;
     });
 
-    // Ajoutez les cartes au conteneur
+    // Ajoute les cartes au conteneur
     recipeCards.forEach((card) => {
       cardContainer.appendChild(card);
     });
@@ -35,13 +34,13 @@ recipeApi
   });
 
 /**
- * Sélectionne l'élément où vous souhaitez ajouter la carte.
+ * Sélectionne l'élément où la card est ajoutée
  * @type {HTMLElement}
  */
 const cardContainer = document.querySelector('.card-recipes-bottom-main');
 
 /**
- * Modèle HTML pour une carte de recette.
+ * Template HTML pour une carte de recette.
  * @type {string}
  */
 const recipeCardTemplate = `
@@ -73,7 +72,6 @@ const recipeCardTemplate = `
  * @returns {string} - Le modèle de carte rempli avec les données.
  */
 function fillRecipeCardTemplate(template, data) {
-  // Logique pour remplir le modèle de carte avec les données
   return template
     .replace('{{id}}', data.id)
     .replace('{{time}}', data.time)
@@ -88,12 +86,13 @@ function fillRecipeCardTemplate(template, data) {
  * @returns {string} - La section des ingrédients remplie.
  */
 function fillIngredients(ingredients) {
+  //TODO: voir avec mentor si ingredient.ingredient n est pas choquant
   // Logique pour remplir la section des ingrédients
   return ingredients
     .map(
       (ingredient) => `
         <div class="container-left-item-ingredients">
-          <p class="item-ingredients">${ingredient.ingredient}
+          <p class="ingredient-name">${ingredient.ingredient}
           <span class="ingredient-quantity">${
             ingredient.quantity ? ingredient.quantity : ''
           }<span/>
@@ -113,11 +112,12 @@ function fillIngredients(ingredients) {
  */
 document.querySelector('#inputNav').addEventListener('keyup', function () {
   // Logique pour filtrer les cartes de recettes en fonction du terme de recherche
-  const searchTerm = this.value.toLowerCase(); // Converti la saisie en minuscules pour une correspondance insensible à la casse
+  const searchTerm = this.value.toLowerCase();
 
   // Sélectionne toutes les cartes de recettes
   const recipeCards = document.querySelectorAll('.card');
-  let anyMatchFound = false; // Utilise un indicateur pour vérifier si une correspondance a été trouvée
+  // Utilise un indicateur pour vérifier si une correspondance a été trouvée
+  let anyMatchFound = false;
 
   recipeCards.forEach((card) => {
     const title = card
@@ -126,7 +126,7 @@ document.querySelector('#inputNav').addEventListener('keyup', function () {
     const description = card
       .querySelector('.instructions-recipes')
       .textContent.toLowerCase();
-    const ingredientNames = card.querySelectorAll('.item-ingredients');
+    const ingredientNames = card.querySelectorAll('.ingredient-name');
 
     let matchFound = false;
 
@@ -135,8 +135,8 @@ document.querySelector('#inputNav').addEventListener('keyup', function () {
       matchFound = true;
     } else {
       ingredientNames.forEach((ingredient) => {
-        const ingredientText = ingredient.textContent.toLowerCase();
-        if (ingredientText.includes(searchTerm)) {
+        const ingredientNameFormatted = ingredient.textContent.toLowerCase();
+        if (ingredientNameFormatted.includes(searchTerm)) {
           matchFound = true;
         }
       });
@@ -145,7 +145,7 @@ document.querySelector('#inputNav').addEventListener('keyup', function () {
     // Affiche ou masque la carte en fonction de la correspondance
     if (matchFound) {
       card.style.display = 'block';
-      anyMatchFound = true; // Une correspondance a été trouvée
+      anyMatchFound = true;
     } else {
       card.style.display = 'none';
     }
@@ -160,20 +160,25 @@ document.querySelector('#inputNav').addEventListener('keyup', function () {
     searchTermElement.textContent = searchTerm;
   } else {
     noMatchMessage.style.display = 'none';
-    searchTermElement.textContent = ''; // Réinitialisez le terme de recherche si des correspondances ont été trouvées
+    // Réinitialisez le terme de recherche si des correspondances ont été trouvées
+    searchTermElement.textContent = '';
   }
 });
 
-// Fonction pour filtrer les cartes en fonction de l'option sélectionnée dans le dropdown
+/**
+ * Filtrer les cartes en fonction de l'option sélectionnée dans le dropdown
+ * @param {*} selectedValue TODO string[]
+ */
+// TODO: cumuler les tags
 function filterByDropdownOption(selectedValue) {
   const recipeCards = document.querySelectorAll('.card');
   recipeCards.forEach((card) => {
-    const ingredientNames = card.querySelectorAll('.item-ingredients');
+    const ingredientNames = card.querySelectorAll('.ingredient-name');
     let matchFound = false;
 
     ingredientNames.forEach((ingredient) => {
-      const ingredientText = ingredient.textContent.toLowerCase();
-      if (ingredientText.includes(selectedValue)) {
+      const ingredientNameFormatted = ingredient.textContent.toLowerCase();
+      if (ingredientNameFormatted.includes(selectedValue)) {
         matchFound = true;
       }
     });
@@ -186,8 +191,14 @@ function filterByDropdownOption(selectedValue) {
   });
 }
 
-// Fonction pour obtenir la valeur sélectionnée du dropdown et déclencher le filtrage
-const getValueSelect = (options, resultClass) => {
+/**
+ * Obtenir la valeur sélectionnée du dropdown et déclencher le filtrage
+ * TODO jsdoc à compléter
+ * TODO voircomment alimenter une liste de tags
+ * @param {*} options
+ * @param {*} resultClass
+ */
+function getValueSelect(options, resultClass) {
   // Logique pour obtenir la valeur sélectionnée et déclencher le filtrage
   options.forEach((option) => {
     option.addEventListener('click', () => {
@@ -196,7 +207,7 @@ const getValueSelect = (options, resultClass) => {
       filterByDropdownOption(selectedValue);
     });
   });
-};
+}
 
 // Sélection des options pour chaque type
 const ingredientsOptions = document.querySelectorAll('.container-option');

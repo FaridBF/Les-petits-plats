@@ -3,7 +3,7 @@
  * @param {string} inputID - L'ID de l'élément input.
  * @param {string} clearInputID - L'ID de l'icône de suppression du contenu.
  */
-const cleanInput = (inputID, clearInputID) => {
+function cleanInput(inputID, clearInputID) {
   // Sélectionne l'élément input et l'icône de suppression
   const input = document.getElementById(inputID);
   const clearInput = document.getElementById(clearInputID);
@@ -25,7 +25,7 @@ const cleanInput = (inputID, clearInputID) => {
     input.value = '';
     clearInput.style.display = 'none';
   });
-};
+}
 
 // Appels à la fonction cleanInput pour différents champs d'entrée
 cleanInput('inputNav', 'clearInputNav');
