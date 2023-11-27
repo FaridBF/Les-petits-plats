@@ -188,6 +188,7 @@ function filterByDropdownOption(selectedValue) {
 
 // Fonction pour obtenir la valeur sélectionnée du dropdown et déclencher le filtrage
 const getValueSelect = (options, resultClass) => {
+  // Logique pour obtenir la valeur sélectionnée et déclencher le filtrage
   options.forEach((option) => {
     option.addEventListener('click', () => {
       const oneOption = document.querySelector(`.${resultClass}`);
