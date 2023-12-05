@@ -75,10 +75,10 @@ if (containerOption) {
   containerOption.addEventListener('click', handleOptionClick);
 }
 
-// ---- container devices ---- //
+// ---- container appliance ---- //
 
 // Fonction pour ajouter ou supprimer une classe CSS
-function toggleClassDevice(element, className) {
+function toggleClassAppliance(element, className) {
   if (element.classList.contains(className)) {
     element.classList.remove(className);
   } else {
@@ -87,67 +87,77 @@ function toggleClassDevice(element, className) {
 }
 
 // Fonction pour ouvrir/fermer le menu
-function toggleMenuDisplayDevice(event) {
-  const dropdownDevice = event.currentTarget.closest('.dropdown-device');
-  const menuDevice = dropdownDevice.querySelector('.menu-device');
-  const iconDevice = dropdownDevice.querySelector('.fa-angle-down');
+function toggleMenuDisplayAppliance(event) {
+  const dropdownAppliance = event.currentTarget.closest('.dropdown-appliance');
+  const menuAppliance = dropdownAppliance.querySelector('.menu-appliance');
+  const iconAppliance = dropdownAppliance.querySelector('.fa-angle-down');
 
-  toggleClassDevice(menuDevice, 'hideDevice');
-  toggleClassDevice(iconDevice, 'rotate-90');
-  toggleClassDevice(dropdownDevice, 'activeDevice');
+  toggleClassAppliance(menuAppliance, 'hideAppliance');
+  toggleClassAppliance(iconAppliance, 'rotate-90');
+  toggleClassAppliance(dropdownAppliance, 'activeAppliance');
 }
 
 // Fonction pour masquer la div au lieu de la supprimer
-function hideResultOptionDevice() {
-  const containerResultOptionDevice = document.querySelector(
-    '.container-result-option-device'
+function hideResultOptionAppliance() {
+  const containerResultOptionAppliance = document.querySelector(
+    '.container-result-option-appliance'
   );
-  containerResultOptionDevice.style.display = 'none';
+  containerResultOptionAppliance.style.display = 'none';
 }
 
 // Fonction pour gérer le clic sur une option
-function handleOptionClickDevice(event) {
-  const optionLabelDevice = event.target.textContent;
-  const searchInputDevice = document.querySelector(
-    '.input-searchInputFilterDevice'
+function handleOptionClickAppliance(event) {
+  const optionLabelAppliance = event.target.textContent;
+  const searchInputAppliance = document.querySelector(
+    '.input-searchInputFilterAppliance'
   );
-  searchInputDevice.value = optionLabelDevice;
+  searchInputAppliance.value = optionLabelAppliance;
 
   // Rétracte le menu lorsque je clique sur une option
-  toggleMenuDisplayDevice({
-    currentTarget: document.querySelector('.dropdown-device .title-device')
+  toggleMenuDisplayAppliance({
+    currentTarget: document.querySelector(
+      '.dropdown-appliance .title-appliance'
+    )
   });
 
-  const resultOptionDevice = document.querySelector('.result-option-device');
-  resultOptionDevice.textContent = searchInputDevice.value;
-  const containerResultOptionDevice = document.querySelector(
-    '.container-result-option-device'
+  const resultOptionAppliance = document.querySelector(
+    '.result-option-appliance'
   );
-  containerResultOptionDevice.style.display = 'block';
+  resultOptionAppliance.textContent = searchInputAppliance.value;
+  const containerResultOptionAppliance = document.querySelector(
+    '.container-result-option-appliance'
+  );
+  containerResultOptionAppliance.style.display = 'block';
 }
 
 // Sélection des éléments du DOM
-const dropdownTitleDevice = document.querySelector(
-  '.dropdown-device .title-device'
+const dropdownTitleAppliance = document.querySelector(
+  '.dropdown-appliance .title-appliance'
 );
-const clearInputOptionDevice = document.getElementById(
-  'clearInputOptionDevice'
+const clearInputOptionAppliance = document.getElementById(
+  'clearInputOptionAppliance'
 );
 
 // Ajout des gestionnaires d'événements
-if (dropdownTitleDevice) {
-  dropdownTitleDevice.addEventListener('click', toggleMenuDisplayDevice);
+if (dropdownTitleAppliance) {
+  dropdownTitleAppliance.addEventListener('click', toggleMenuDisplayAppliance);
 }
 
-if (clearInputOptionDevice) {
-  clearInputOptionDevice.addEventListener('click', hideResultOptionDevice);
+if (clearInputOptionAppliance) {
+  clearInputOptionAppliance.addEventListener(
+    'click',
+    hideResultOptionAppliance
+  );
 }
 
-const containerOptionDevice = document.querySelector(
-  '.container-option-device'
+const containerOptionAppliance = document.querySelector(
+  '.container-option-appliance'
 );
-if (containerOptionDevice) {
-  containerOptionDevice.addEventListener('click', handleOptionClickDevice);
+if (containerOptionAppliance) {
+  containerOptionAppliance.addEventListener(
+    'click',
+    handleOptionClickAppliance
+  );
 }
 
 /**

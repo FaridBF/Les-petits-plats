@@ -211,10 +211,12 @@ function getValueSelect(options, resultClass) {
 
 // Sélection des options pour chaque type
 const ingredientsOptions = document.querySelectorAll('.container-option');
-const deviceOptions = document.querySelectorAll('.container-option-device');
+const applianceOptions = document.querySelectorAll(
+  '.container-option-appliance'
+);
 const ustensilOptions = document.querySelectorAll('.container-option-ustensil');
 
 // Appel de la fonction pour chaque type d'option
 getValueSelect(ingredientsOptions, 'result-option');
-getValueSelect(deviceOptions, 'result-option-device');
+getValueSelect(applianceOptions, 'result-option-appliance');
 getValueSelect(ustensilOptions, 'result-option-ustensil');

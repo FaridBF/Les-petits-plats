@@ -30,5 +30,5 @@ function cleanInput(inputID, clearInputID) {
 // Appels à la fonction cleanInput pour différents champs d'entrée
 cleanInput('inputNav', 'clearInputNav');
 cleanInput('searchInputFilter', 'clearInputFilter');
-cleanInput('searchInputFilterDevice', 'clearInputFilterDevice');
+cleanInput('searchInputFilterAppliance', 'clearInputFilterAppliance');
 cleanInput('searchInputFilterUstensil', 'clearInputFilterUstensil');

@@ -82,9 +82,9 @@ filterOptions('searchInputFilter', 'ingredientOptions', 'option', (recipe) =>
  * Filtre et affiche les options d'appareils.
  */
 filterOptions(
-  'searchInputFilterDevice',
+  'searchInputFilterAppliance',
   'applianceOptions',
-  'option-device',
+  'option-appliance',
   (recipe) => recipe.appliance
 );
 
