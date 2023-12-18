@@ -1,4 +1,10 @@
 /**
+ * --------------------------
+ * TOUS CONTAINERS
+ * --------------------------
+ */
+
+/**
  * Fonction pour ajouter ou supprimer une classe CSS sur un élément.
  * @param {HTMLElement} element - L'élément sur lequel la classe doit être ajoutée ou supprimée.
  * @param {string} className - Le nom de la classe à ajouter ou supprimer.
@@ -12,120 +18,123 @@ function toggleClass(element, className) {
 }
 
 /**
+ * --------------------------
+ * CONTAINER FILTRE INGREDIENT
+ * --------------------------
+ */
+
+/**
  * Fonction pour ouvrir ou fermer le menu en modifiant les classes CSS des éléments.
  * @param {MouseEvent} event - L'événement déclencheur de la fonction.
  */
-function toggleMenuDisplay(event) {
-  const dropdown = event.currentTarget.closest('.dropdown');
+function toggleMenuDisplayIngredient(event) {
+  const dropdown = event.currentTarget.closest('.dropdown-ingredient');
   const menu = dropdown.querySelector('.menu');
   const icon = dropdown.querySelector('.fa-angle-down');
 
-  toggleClass(menu, 'hide');
+  toggleClass(menu, 'hide-ingredient');
   toggleClass(icon, 'rotate-90');
   toggleClass(dropdown, 'active');
 }
 
 /**
- * Fonction pour masquer une div au lieu de la supprimer.
+ * Fonction pour masquer un tag 'ingredient' sélectionné au lieu de le supprimer.
  */
-function hideResultOption() {
-  const containerResultOption = document.querySelector(
-    '.container-result-option'
+function hideSelectedOptionIngredient() {
+  const containerSelectedOptionIngrdient = document.querySelector(
+    '.container-selected-option-ingredient'
   );
-  containerResultOption.style.display = 'none';
+  containerSelectedOptionIngrdient.style.display = 'none';
 }
 
 /**
- * Fonction pour gérer le clic sur une option, met à jour les éléments HTML correspondants.
+ * Fonction pour gérer le clic sur une option pour sélectionner un ingrédient
  * @param {MouseEvent} event - L'événement de clic déclencheur de la fonction.
  */
-function handleOptionClick(event) {
-  const optionLabel = event.target.textContent;
-  const searchInput = document.querySelector('.input-searchInputFilter');
-  searchInput.value = optionLabel;
-
+function handleOptionClickIngredient(event) {
   // Rétracte le menu lorsque je clique sur une option
-  toggleMenuDisplay({
-    currentTarget: document.querySelector('.dropdown .title')
+  toggleMenuDisplayIngredient({
+    currentTarget: document.querySelector('.dropdown-ingredient .title')
   });
-
-  const resultOption = document.querySelector('.result-option');
-  resultOption.textContent = searchInput.value;
-  const containerResultOption = document.querySelector(
-    '.container-result-option'
+  
+  // Création du tag pour l'ingrédient sélectionné
+  const optionLabelIngredient = event.target.textContent;
+  const selectedOptionIngredient = document.querySelector('.selected-option-ingredient');
+  selectedOptionIngredient.textContent = optionLabelIngredient;
+  const containerSelectedOptionIngrdient = document.querySelector(
+    '.container-selected-option-ingredient'
   );
-  containerResultOption.style.display = 'block';
+  containerSelectedOptionIngrdient.style.display = 'block';
 }
 
 // Sélection des éléments du DOM
-const dropdownTitle = document.querySelector('.dropdown .title');
-const clearInputOption = document.getElementById('clearInputOption');
+const dropdownTitle = document.querySelector('.dropdown-ingredient .title');
+const clearOptionSelected = document.getElementById('clearSelectedOptionIngredient');
 
 // Ajout des gestionnaires d'événements
 if (dropdownTitle) {
-  dropdownTitle.addEventListener('click', toggleMenuDisplay);
+  dropdownTitle.addEventListener('click', toggleMenuDisplayIngredient);
 }
 
-if (clearInputOption) {
-  clearInputOption.addEventListener('click', hideResultOption);
+if (clearOptionSelected) {
+  clearOptionSelected.addEventListener('click', hideSelectedOptionIngredient);
 }
 
-const containerOption = document.querySelector('.container-option');
+const containerOption = document.querySelector('.container-option-ingredient');
 if (containerOption) {
-  containerOption.addEventListener('click', handleOptionClick);
+  containerOption.addEventListener('click', handleOptionClickIngredient);
 }
 
-// ---- container appliance ---- //
+/**
+ * --------------------------
+ * CONTAINER FILTRE APPLIANCE
+ * --------------------------
+ */
 
-// Fonction pour ajouter ou supprimer une classe CSS
-function toggleClassAppliance(element, className) {
-  if (element.classList.contains(className)) {
-    element.classList.remove(className);
-  } else {
-    element.classList.add(className);
-  }
-}
-
-// Fonction pour ouvrir/fermer le menu
+/**
+ * Fonction pour ouvrir/fermer le menu
+ * @param {ToggleEvent} event 
+ */
 function toggleMenuDisplayAppliance(event) {
   const dropdownAppliance = event.currentTarget.closest('.dropdown-appliance');
   const menuAppliance = dropdownAppliance.querySelector('.menu-appliance');
   const iconAppliance = dropdownAppliance.querySelector('.fa-angle-down');
 
-  toggleClassAppliance(menuAppliance, 'hideAppliance');
-  toggleClassAppliance(iconAppliance, 'rotate-90');
-  toggleClassAppliance(dropdownAppliance, 'activeAppliance');
+  toggleClass(menuAppliance, 'hide-appliance');
+  toggleClass(iconAppliance, 'rotate-90');
+  toggleClass(dropdownAppliance, 'active-appliance');
 }
 
-// Fonction pour masquer la div au lieu de la supprimer
-function hideResultOptionAppliance() {
+/**
+ * Fonction pour masquer un tag 'appliance' sélectionné au lieu de le supprimer.
+ */
+function hideSelectedOptionAppliance() {
   const containerResultOptionAppliance = document.querySelector(
-    '.container-result-option-appliance'
+    '.container-selected-option-appliance'
   );
   containerResultOptionAppliance.style.display = 'none';
 }
 
-// Fonction pour gérer le clic sur une option
-function handleOptionClickAppliance(event) {
-  const optionLabelAppliance = event.target.textContent;
-  const searchInputAppliance = document.querySelector(
-    '.input-searchInputFilterAppliance'
-  );
-  searchInputAppliance.value = optionLabelAppliance;
-
+/**
+ * Fonction pour gérer le clic sur une option pour sélectionner un appareil (appliance)
+ * @param {MouseEvent} event 
+ */
+function handleOptionClickAppliance(event) {    
   // Rétracte le menu lorsque je clique sur une option
   toggleMenuDisplayAppliance({
     currentTarget: document.querySelector(
       '.dropdown-appliance .title-appliance'
-    )
+      )
   });
-
-  const resultOptionAppliance = document.querySelector(
-    '.result-option-appliance'
+      
+  // Création du tag pour l'appareil (appliance) sélectionné
+  const optionLabelAppliance = event.target.textContent;
+  const selectedOptionAppliance = document.querySelector(
+    '.selected-option-appliance'
   );
-  resultOptionAppliance.textContent = searchInputAppliance.value;
+  selectedOptionAppliance.textContent = optionLabelAppliance;
   const containerResultOptionAppliance = document.querySelector(
-    '.container-result-option-appliance'
+    '.container-selected-option-appliance'
   );
   containerResultOptionAppliance.style.display = 'block';
 }
@@ -134,8 +143,8 @@ function handleOptionClickAppliance(event) {
 const dropdownTitleAppliance = document.querySelector(
   '.dropdown-appliance .title-appliance'
 );
-const clearInputOptionAppliance = document.getElementById(
-  'clearInputOptionAppliance'
+const clearSelectedOptionAppliance = document.getElementById(
+  'clearSelectedOptionAppliance'
 );
 
 // Ajout des gestionnaires d'événements
@@ -143,10 +152,10 @@ if (dropdownTitleAppliance) {
   dropdownTitleAppliance.addEventListener('click', toggleMenuDisplayAppliance);
 }
 
-if (clearInputOptionAppliance) {
-  clearInputOptionAppliance.addEventListener(
+if (clearSelectedOptionAppliance) {
+  clearSelectedOptionAppliance.addEventListener(
     'click',
-    hideResultOptionAppliance
+    hideSelectedOptionAppliance
   );
 }
 
@@ -161,17 +170,10 @@ if (containerOptionAppliance) {
 }
 
 /**
- * Fonction pour ajouter ou supprimer une classe CSS sur un élément.
- * @param {HTMLElement} element - L'élément sur lequel la classe doit être ajoutée ou supprimée.
- * @param {string} className - Le nom de la classe à ajouter ou supprimer.
+ * --------------------------
+ * CONTAINER FILTRE USTENSIL
+ * --------------------------
  */
-function toggleClassUstensil(element, className) {
-  if (element.classList.contains(className)) {
-    element.classList.remove(className);
-  } else {
-    element.classList.add(className);
-  }
-}
 
 /**
  * Fonction pour ouvrir ou fermer le menu d'ustensils en modifiant les classes CSS des éléments.
@@ -182,43 +184,39 @@ function toggleMenuDisplayUstensil(event) {
   const menuUstensil = dropdownUstensil.querySelector('.menu-ustensil');
   const iconUstensil = dropdownUstensil.querySelector('.fa-angle-down');
 
-  toggleClassUstensil(menuUstensil, 'hideUstensil');
-  toggleClassUstensil(iconUstensil, 'rotate-90');
-  toggleClassUstensil(dropdownUstensil, 'activeUstensil');
+  toggleClass(menuUstensil, 'hide-ustensil');
+  toggleClass(iconUstensil, 'rotate-90');
+  toggleClass(dropdownUstensil, 'active-ustensil');
 }
 
 /**
- * Fonction pour masquer la div contenant les résultats d'options d'ustensils.
+ * Fonction pour masquer un tag 'ustensil' sélectionné au lieu de le supprimer.
  */
-function hideResultOptionUstensil() {
+function hideSelectedOptionUstensil() {
   const containerResultOptionUstensil = document.querySelector(
-    '.container-result-option-ustensil'
+    '.container-selected-option-ustensil'
   );
   containerResultOptionUstensil.style.display = 'none';
 }
 
 /**
- * Fonction pour gérer le clic sur une option d'ustensil, met à jour les éléments HTML correspondants.
+ * Fonction pour gérer le clic sur une option pour sélectionner un unstensile (ustensil)
  * @param {MouseEvent} event - L'événement déclencheur de la fonction.
  */
 function handleOptionClickUstensil(event) {
-  const optionLabelUstensil = event.target.textContent;
-  const searchInputUstensil = document.querySelector(
-    '.input-searchInputFilterUstensil'
-  );
-  searchInputUstensil.value = optionLabelUstensil;
-
   // Rétracte le menu lorsque je clique sur une option
   toggleMenuDisplayUstensil({
     currentTarget: document.querySelector('.dropdown-ustensil .title-ustensil')
   });
 
-  const resultOptionUstensil = document.querySelector(
-    '.result-option-ustensil'
+  // Création du tag pour l'ustensile (ustensil) sélectionné
+  const optionLabelUstensil = event.target.textContent;
+  const selectedOptionUstensil = document.querySelector(
+    '.selected-option-ustensil'
   );
-  resultOptionUstensil.textContent = searchInputUstensil.value;
+  selectedOptionUstensil.textContent = optionLabelUstensil;
   const containerResultOptionUstensil = document.querySelector(
-    '.container-result-option-ustensil'
+    '.container-selected-option-ustensil'
   );
   containerResultOptionUstensil.style.display = 'block';
 }
@@ -227,8 +225,8 @@ function handleOptionClickUstensil(event) {
 const dropdownTitleUstensil = document.querySelector(
   '.dropdown-ustensil .title-ustensil'
 );
-const clearInputOptionUstensil = document.getElementById(
-  'clearInputOptionUstensil'
+const clearSelectedOptionUstensil = document.getElementById(
+  'clearSelectedOptionUstensil'
 );
 const containerOptionUstensil = document.querySelector(
   '.container-option-ustensil'
@@ -239,8 +237,8 @@ if (dropdownTitleUstensil) {
   dropdownTitleUstensil.addEventListener('click', toggleMenuDisplayUstensil);
 }
 
-if (clearInputOptionUstensil) {
-  clearInputOptionUstensil.addEventListener('click', hideResultOptionUstensil);
+if (clearSelectedOptionUstensil) {
+  clearSelectedOptionUstensil.addEventListener('click', hideSelectedOptionUstensil);
 }
 
 if (containerOptionUstensil) {

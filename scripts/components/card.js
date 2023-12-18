@@ -210,13 +210,13 @@ function getValueSelect(options, resultClass) {
 }
 
 // Sélection des options pour chaque type
-const ingredientsOptions = document.querySelectorAll('.container-option');
+const ingredientsOptions = document.querySelectorAll('.container-option-ingredient');
 const applianceOptions = document.querySelectorAll(
   '.container-option-appliance'
 );
 const ustensilOptions = document.querySelectorAll('.container-option-ustensil');
 
 // Appel de la fonction pour chaque type d'option
-getValueSelect(ingredientsOptions, 'result-option');
-getValueSelect(applianceOptions, 'result-option-appliance');
-getValueSelect(ustensilOptions, 'result-option-ustensil');
+getValueSelect(ingredientsOptions, 'selected-option-ingredient');
+getValueSelect(applianceOptions, 'selected-option-appliance');
+getValueSelect(ustensilOptions, 'selected-option-ustensil');
