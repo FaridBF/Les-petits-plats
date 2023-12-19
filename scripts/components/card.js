@@ -5,6 +5,8 @@
 import RecipesApi from '/scripts/api/Api.js';
 
 const recipeApi = new RecipesApi('../../data/recipes.json');
+// TODO initier liste vide des recettes à afficher
+let recipes;
 
 /**
  * Récupère les données de recettes, crée des cartes HTML et les ajoute au conteneur.
@@ -14,17 +16,12 @@ const recipeApi = new RecipesApi('../../data/recipes.json');
 recipeApi
   .getRecipes()
   .then((recipesData) => {
-    const recipeCards = recipesData.map((recipe) => {
-      const filledTemplate = fillRecipeCardTemplate(recipeCardTemplate, recipe);
-      const card = document.createElement('div');
-      card.innerHTML = filledTemplate;
-      return card;
-    });
-
-    // Ajoute les cartes au conteneur
-    recipeCards.forEach((card) => {
-      cardContainer.appendChild(card);
-    });
+    clearRecipes();
+    // TODO: de base, alimenter la liste vide avec recipesData
+    recipes = recipesData;
+    if (recipes.length > 0) {
+      displayRecipes(recipes)
+    }
   })
   .catch((error) => {
     console.error(
@@ -32,6 +29,25 @@ recipeApi
       error
     );
   });
+
+// TODO : Fonction qui crée des cartes de recettes HTML et les ajoute au conteneur.
+function displayRecipes(recipes) {
+    const recipeCards = recipes.map((recipe) => {
+      const filledTemplate = fillRecipeCardTemplate(recipeCardTemplate, recipe);
+      const card = document.createElement('div');
+      card.innerHTML = filledTemplate;
+      return card;
+    });
+  
+    // Ajoute les cartes au conteneur
+    recipeCards.forEach((card) => {
+      cardContainer.appendChild(card);
+    });
+}
+
+function clearRecipes() {
+  cardContainer.innerHTML = "";
+}
 
 /**
  * Sélectionne l'élément où la card est ajoutée
@@ -110,6 +126,7 @@ function fillIngredients(ingredients) {
  * Met en place un filtre pour la recherche des recettes.
  * @event
  */
+// TODO. faut-il faire pareil pour la recherche ?, ne plus utiliser matchfound ?
 document.querySelector('#inputNav').addEventListener('keyup', function () {
   // Logique pour filtrer les cartes de recettes en fonction du terme de recherche
   const searchTerm = this.value.toLowerCase();
@@ -118,37 +135,26 @@ document.querySelector('#inputNav').addEventListener('keyup', function () {
   const recipeCards = document.querySelectorAll('.card');
   // Utilise un indicateur pour vérifier si une correspondance a été trouvée
   let anyMatchFound = false;
+  let recipesMatching = [];
+  // TODO : utiliser recipes.length
 
-  recipeCards.forEach((card) => {
-    const title = card
-      .querySelector('.name-title-recipes')
-      .textContent.toLowerCase();
-    const description = card
-      .querySelector('.instructions-recipes')
-      .textContent.toLowerCase();
-    const ingredientNames = card.querySelectorAll('.ingredient-name');
-
-    let matchFound = false;
-
+  recipes.map((recipe) => {
     // Vérifie si la valeur saisie correspond à un titre, à la description ou à un ingrédient de la carte
-    if (title.includes(searchTerm) || description.includes(searchTerm)) {
-      matchFound = true;
+    if (recipe.name.toLowerCase().includes(searchTerm) || recipe.description.toLowerCase().includes(searchTerm)) {
+      recipesMatching.push(recipe);
+      anyMatchFound = true;
     } else {
-      ingredientNames.forEach((ingredient) => {
-        const ingredientNameFormatted = ingredient.textContent.toLowerCase();
+      recipe.ingredients.forEach((ingredient) => {
+        const ingredientNameFormatted = ingredient.ingredient.toLowerCase();
         if (ingredientNameFormatted.includes(searchTerm)) {
-          matchFound = true;
+          recipesMatching.push(recipe);
+          anyMatchFound = true;
         }
       });
     }
 
-    // Affiche ou masque la carte en fonction de la correspondance
-    if (matchFound) {
-      card.style.display = 'block';
-      anyMatchFound = true;
-    } else {
-      card.style.display = 'none';
-    }
+    clearRecipes();
+    displayRecipes(recipesMatching)
   });
 
   // Affiche un message d'aucune correspondance avec le terme de recherche inclus
@@ -220,3 +226,6 @@ const ustensilOptions = document.querySelectorAll('.container-option-ustensil');
 getValueSelect(ingredientsOptions, 'selected-option-ingredient');
 getValueSelect(applianceOptions, 'selected-option-appliance');
 getValueSelect(ustensilOptions, 'selected-option-ustensil');
+
+// const ustensillFilter = document.getElementById('dropdown-ustensil').value;
+// console.log('ustensil choisi:', ustensillFilter)

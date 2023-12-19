@@ -44,6 +44,7 @@ function filterOptions(
 
       uniqueOptions.forEach((option) => {
         const optionElement = document.createElement('div');
+        // const optionElement = document.createElement('option');
         optionElement.classList.add(optionClass);
         optionElement.textContent = option;
         optionsContainer.appendChild(optionElement);
