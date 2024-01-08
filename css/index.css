@@ -87,10 +87,10 @@ body {
 
 /*container rechercher filters*/
 
-.inputIconContainer {
+/* .inputIconContainer {
   display: flex;
   align-items: center;
-}
+} */
 
 .inputIconContainer {
   position: relative;
@@ -169,14 +169,28 @@ body {
   top: 0px;
 }
 
-/*container selected option INGREDIENT*/
+/*container selected tag option INGREDIENT*/
+.wrapper-tag-selected-ingredient {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-.container-selected-option-ingredient {
-  width: 203px;
+/* .tag-selected-ingredient { */
+.tag-selected-ingredient {
+  /* width: 203px; */
+  width: 185px;
   height: 53px;
   background-color: #ffd15b;
   border-radius: 10px;
-  display: none;
+  /* display: none; */
+  list-style: none;
+  padding: 0 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 p.selected-option-ingredient {
@@ -310,6 +324,7 @@ span.ingredient-quantity {
 /** dropdown**/
 /* Style du conteneur */
 .hide-ingredient {
+  /* TODO. pquoi important */
   max-height: 0 !important;
 }
 
@@ -323,13 +338,13 @@ span.ingredient-quantity {
   width: 200px;
 }
 
-.dropdown-ingredient .menu {
+.dropdown-ingredient .menu-ingredient {
   transition: max-height 0.5s ease-out;
   max-height: 20em;
   overflow: hidden;
 }
 
-.dropdown-ingredient .menu .option {
+.dropdown-ingredient .menu-ingredient .ingredient-option {
   /* margin: 0.3em 0.3em 0.3em 0.3em; */
   margin-top: 0.3em;
   /* padding: 15px; */
@@ -339,7 +354,7 @@ span.ingredient-quantity {
   padding-top: 10px;
 }
 
-.dropdown-ingredient .menu .option:hover {
+.dropdown-ingredient .menu-ingredient .ingredient-option:hover {
   background: #ffd15b;
   padding-bottom: 10px;
   padding-left: 15px;
@@ -348,12 +363,12 @@ span.ingredient-quantity {
   /* padding: 15px; */
 }
 
-.dropdown-ingredient .title {
+.dropdown-ingredient .title-ingredient {
   width: 100%;
 }
 
 /* Style de l'icône de chevron */
-.dropdown-ingredient .title .fa-angle-down {
+.dropdown-ingredient .title-ingredient .fa-angle-down {
   float: right;
   margin-right: 0.7em;
   transition: transform 0.3s;
@@ -361,7 +376,7 @@ span.ingredient-quantity {
 }
 
 /* Lorsque le dropdown est actif (classe "active") */
-.dropdown-ingredient.active .title .fa-angle-down {
+.dropdown-ingredient.active-ingredient .title-ingredient .fa-angle-down {
   transform: rotate(180deg);
   margin: 0;
 }
@@ -378,9 +393,9 @@ span.ingredient-quantity {
   padding: 8px;
 }
 
-.inputIconContainer {
+/* .inputIconContainer {
   position: relative;
-}
+} */
 
 span.container-iconSearch {
   position: absolute;
@@ -389,11 +404,13 @@ span.container-iconSearch {
 }
 
 .container-option-ingredient {
+  list-style: none;
   max-height: 200px;
   overflow-y: auto;
+  padding-left: 0;
 }
 
-.title.pointerCursor {
+.title-ingredient.pointerCursor {
   display: flex;
   align-items: center;
   font-size: 16px;
@@ -403,7 +420,7 @@ span.container-iconSearch {
   justify-content: space-between;
 }
 
-.title.pointerCursor {
+.title-ingredient.pointerCursor {
   padding: 15px;
   width: 85%;
 }
@@ -445,7 +462,7 @@ span.container-iconSearch {
   overflow: hidden;
 }
 
-.dropdown-appliance .menu-appliance .option-appliance {
+.dropdown-appliance .menu-appliance .appliance-option {
   /* margin: 0.3em 0.3em 0.3em 0.3em; */
   margin-top: 0.3em;
   /* padding: 15px; */
@@ -455,7 +472,7 @@ span.container-iconSearch {
   padding-top: 10px;
 }
 
-.dropdown-appliance .menu-appliance .option-appliance:hover {
+.dropdown-appliance .menu-appliance .appliance-option:hover {
   background: #ffd15b;
   padding-bottom: 10px;
   padding-left: 15px;
@@ -494,9 +511,9 @@ span.container-iconSearch {
   padding: 8px;
 }
 
-.inputIconContainerAppliance {
+/* .inputIconContainerAppliance {
   position: relative;
-}
+} */
 
 span.container-iconSearchAppliance {
   position: absolute;
@@ -505,8 +522,10 @@ span.container-iconSearchAppliance {
 }
 
 .container-option-appliance {
+  list-style: none;
   max-height: 200px;
   overflow-y: auto;
+  padding-left: 0;
 }
 
 .title-appliance.pointerCursorAppliance {
@@ -541,13 +560,37 @@ span.container-iconSearchAppliance {
 
 /*container selected option APPLIANCE*/
 
-.container-selected-option-appliance {
+/* .container-selected-option-appliance {
   width: 203px;
   height: 53px;
   background-color: #ffd15b;
   border-radius: 10px;
   display: none;
+} */
+
+/* *** */
+.wrapper-tag-selected-appliance {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
+
+.tag-selected-appliance {
+  /* width: 203px; */
+  width: 185px;
+  height: 53px;
+  background-color: #ffd15b;
+  border-radius: 10px;
+  /* display: none; */
+  list-style: none;
+  padding: 0 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* *** */
 
 p.selected-option-appliance {
   display: flex;
@@ -588,7 +631,7 @@ p.selected-option-appliance {
   overflow: hidden;
 }
 
-.dropdown-ustensil .menu-ustensil .option-ustensil {
+.dropdown-ustensil .menu-ustensil .ustensil-option {
   /* margin: 0.3em 0.3em 0.3em 0.3em; */
   margin-top: 0.3em;
   /* padding: 15px; */
@@ -598,7 +641,7 @@ p.selected-option-appliance {
   padding-top: 10px;
 }
 
-.dropdown-ustensil .menu-ustensil .option-ustensil:hover {
+.dropdown-ustensil .menu-ustensil .ustensil-option:hover {
   background: #ffd15b;
   padding-bottom: 10px;
   padding-left: 15px;
@@ -637,9 +680,9 @@ p.selected-option-appliance {
   padding: 8px;
 }
 
-.inputIconContainerUstensil {
+/* .inputIconContainerUstensil {
   position: relative;
-}
+} */
 
 span.container-iconSearchUstensil {
   position: absolute;
@@ -648,8 +691,10 @@ span.container-iconSearchUstensil {
 }
 
 .container-option-ustensil {
+  list-style: none;
   max-height: 200px;
   overflow-y: auto;
+  padding-left: 0;
 }
 
 .title-ustensil.pointerCursorUstensil {
@@ -675,21 +720,43 @@ span.container-iconSearchUstensil {
   transform: rotate(90deg);
 }
 
-.option-ustensil {
+/* .ustensil-option {
   font-size: 14px;
   line-height: 19.12px;
   font-family: Manrope;
   font-weight: 400;
-}
+} */
 
 /*container selected option USTENSIL*/
 
-.container-selected-option-ustensil {
+/* .container-selected-option-ustensil {
   width: 203px;
   height: 53px;
   background-color: #ffd15b;
   border-radius: 10px;
   display: none;
+} */
+
+.wrapper-tag-selected-ustensil {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tag-selected-ustensil {
+  /* width: 203px; */
+  width: 185px;
+  height: 53px;
+  background-color: #ffd15b;
+  border-radius: 10px;
+  /* display: none; */
+  list-style: none;
+  padding: 0 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 p.selected-option-ustensil {

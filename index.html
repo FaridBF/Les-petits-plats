@@ -44,120 +44,28 @@
         </header>
         <main class="main">
             <section class="filter-top-main">
-                <!-- <div class="container-filters">
-                    <div class="container-dropdown">
-                        <div class="dropdown-ingredient">
-                            <div class="title pointerCursor active">Ingrédients <i class="fas fa-angle-down"></i></div>
-                            <div class='menu pointerCursor hide-ingredient'>
-                                <div class="search-container">
-                                    <div class="inputIconContainer">
-                                        <input class="input-searchInputFilter" type="text" id="searchInputFilter"
-                                            placeholder="Rechercher...">
-                                        <span class="clear-inputFilter" id="clearInputFilter"><img
-                                                class="closeInputFilter" src="assets/icons/icon-close.png"
-                                                alt="Fermer" /></span>
-                                        <span class="container-iconSearch"> <i class="fas fa-search"></i></span>
-                                    </div>
-                                </div>
-                                <div class="container-option-ingredient" id="ingredientOptions"></div>
-                            </div>
-                        </div>
-                        <div class="container-selected-option-ingredient">
-                            <div class="container-text">
-                                <p class="selected-option-ingredient"></p>
-                                <span id="clearSelectedOptionIngredient" class="clear-inputOption">
-                                    <img src="assets/icons/icon-close.png" alt="Fermer" /></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-dropdown">
-                        <div class="dropdown-appliance">
-                            <div class="title-appliance pointerCursorAppliance active-appliance">Appareils <i
-                                    class="fas fa-angle-down"></i>
-                            </div>
-                            <div class='menu-appliance pointerCursor hide-appliance'>
-                                <div class="search-container-appliance">
-                                    <div class="inputIconContainerAppliance">
-                                        <input class="input-searchInputFilterAppliance" type="text"
-                                            id="searchInputFilterAppliance" placeholder="Rechercher...">
-                                        <span class="clear-inputFilterAppliance" id="clearInputFilterAppliance"><img
-                                                class="closeInputFilter" src="assets/icons/icon-close.png"
-                                                alt="Fermer" /></span>
-                                        <span class="container-iconSearchAppliance"> <i
-                                                class="fas fa-search"></i></span>
-                                    </div>
-                                </div>
-                                <div class="container-option-appliance" id="applianceOptions"></div>
-                            </div>
-                        </div>
-                        <div class="container-selected-option-appliance">
-                            <div class="container-text-appliance">
-                                <p class="selected-option-appliance"></p>
-                                <span id="clearSelectedOptionAppliance" class="clear-inputOptionAppliance">
-                                    <img src="assets/icons/icon-close.png" alt="Fermer" /></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-dropdown">
-                        <div class="dropdown-ustensil">
-                            <div class="title-ustensil pointerCursorUstensil active-ustensil">Ustensiles <i
-                                    class="fas fa-angle-down"></i>
-                            </div>
-                            <div class='menu-ustensil pointerCursor hide-ustensil'>
-                                <div class="search-container-ustensil">
-                                    <div class="inputIconContainerUstensil">
-                                        <input class="input-searchInputFilterUstensil" type="text"
-                                            id="searchInputFilterUstensil" placeholder="Rechercher...">
-                                        <span class="clear-inputFilterUstensil" id="clearInputFilterUstensil"><img
-                                                class="closeInputFilter" src="assets/icons/icon-close.png"
-                                                alt="Fermer" /></span>
-                                        <span class="container-iconSearchUstensil"> <i class="fas fa-search"></i></span>
-                                    </div>
-
-                                </div>
-                                <div class="container-option-ustensil" id="ustensilOptions"></div>
-                            </div>
-                        </div>
-                        <div class="container-selected-option-ustensil">
-                            <div class="container-text-ustensil">
-                                <p class="selected-option-ustensil"></p>
-                                <span id="clearSelectedOptionUstensil" class="clear-inputOptionUstensil">
-                                    <img src="assets/icons/icon-close.png" alt="Fermer" /></span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div> -->
-
-
-                <!-- TODO NOUVEAU -->
                 <div class="container-filters">
                     <!-- INGREDIENTS -->
                     <div class="container-dropdown">
                         <div class="dropdown-ingredient">
-                            <div class="title pointerCursor active">Ingrédients <i class="fas fa-angle-down"></i></div>
-                            <div class='menu pointerCursor hide-ingredient'>
+                            <div class="title-ingredient pointerCursor active-ingredient">Ingrédients <i
+                                    class="fas fa-angle-down"></i></div>
+                            <div class='menu-ingredient pointerCursor hide-ingredient'>
                                 <div class="search-container">
                                     <div class="inputIconContainer">
-                                        <input class="input-searchInputFilter" type="text" id="searchInputFilter"
-                                            placeholder="Rechercher...">
-                                        <span class="clear-inputFilter" id="clearInputFilter"><img
+                                        <input class="input-searchInputFilter" type="text"
+                                            id="searchInputFilterIngredient" placeholder="Rechercher...">
+                                        <span class="clear-inputFilter" id="clearInputFilterIngredient"><img
                                                 class="closeInputFilter" src="assets/icons/icon-close.png"
                                                 alt="Fermer" /></span>
                                         <span class="container-iconSearch"> <i class="fas fa-search"></i></span>
                                     </div>
                                 </div>
-                                <div class="container-option-ingredient" id="ingredientOptions"></div>
-                                <!-- <select class="container-option-ingredient" id="ingredientOptions"></select> -->
+                                <ul class="container-option-ingredient" id="ingredientOptions"></ul>
                             </div>
                         </div>
-                        <div class="container-selected-option-ingredient">
-                            <div class="container-text">
-                                <p class="selected-option-ingredient"></p>
-                                <span id="clearSelectedOptionIngredient" class="clear-inputOption">
-                                    <img src="assets/icons/icon-close.png" alt="Fermer" /></span>
-                            </div>
-                        </div>
+                        <ul class="wrapper-tag-selected-ingredient">
+                        </ul>
                     </div>
                     <!-- FIN INGREDIENTS -->
 
@@ -169,7 +77,7 @@
                             </div>
                             <div class='menu-appliance pointerCursor hide-appliance'>
                                 <div class="search-container-appliance">
-                                    <div class="inputIconContainerAppliance">
+                                    <div class="inputIconContainer">
                                         <input class="input-searchInputFilterAppliance" type="text"
                                             id="searchInputFilterAppliance" placeholder="Rechercher...">
                                         <span class="clear-inputFilterAppliance" id="clearInputFilterAppliance"><img
@@ -179,17 +87,11 @@
                                                 class="fas fa-search"></i></span>
                                     </div>
                                 </div>
-                                <div class="container-option-appliance" id="applianceOptions"></div>
-                                <!-- <select class="container-option-appliance" id="applianceOptions"></select> -->
+                                <ul class="container-option-appliance" id="applianceOptions"></ul>
                             </div>
                         </div>
-                        <div class="container-selected-option-appliance">
-                            <div class="container-text-appliance">
-                                <p class="selected-option-appliance"></p>
-                                <span id="clearSelectedOptionAppliance" class="clear-inputOptionAppliance">
-                                    <img src="assets/icons/icon-close.png" alt="Fermer" /></span>
-                            </div>
-                        </div>
+                        <ul class="wrapper-tag-selected-appliance">
+                        </ul>
                     </div>
                     <!-- FIN APPAREILS -->
 
@@ -201,27 +103,20 @@
                             </div>
                             <div class='menu-ustensil pointerCursor hide-ustensil'>
                                 <div class="search-container-ustensil">
-                                    <div class="inputIconContainerUstensil">
+                                    <div class="inputIconContainer">
                                         <input class="input-searchInputFilterUstensil" type="text"
                                             id="searchInputFilterUstensil" placeholder="Rechercher...">
+                                        <!-- TODO. ? -->
                                         <span class="clear-inputFilterUstensil" id="clearInputFilterUstensil"><img
                                                 class="closeInputFilter" src="assets/icons/icon-close.png"
                                                 alt="Fermer" /></span>
                                         <span class="container-iconSearchUstensil"> <i class="fas fa-search"></i></span>
                                     </div>
-
                                 </div>
-                                <div class="container-option-ustensil" id="ustensilOptions"></div>
-                                <!-- <select class="container-option-ustensil" id="ustensilOptions"></select> -->
+                                <ul class="container-option-ustensil" id="ustensilOptions"></ul>
                             </div>
                         </div>
-                        <div class="container-selected-option-ustensil">
-                            <div class="container-text-ustensil">
-                                <p class="selected-option-ustensil"></p>
-                                <span id="clearSelectedOptionUstensil" class="clear-inputOptionUstensil">
-                                    <img src="assets/icons/icon-close.png" alt="Fermer" /></span>
-                            </div>
-                        </div>
+                        <ul class="wrapper-tag-selected-ustensil"></ul>
                     </div>
                     <!-- FIN USTENSILES -->
 
@@ -233,12 +128,18 @@
             </section>
         </main>
         <!-- Api -->
-        <script type="module" src="/scripts/api/Api.js"></script>
+        <script type="module" src="./scripts/api/Api.js"></script>
         <!-- Entry point -->
-        <script type="module" src="./scripts//components//index.js"></script>
-        <script type="module" src="./scripts//components//card.js"></script>
-        <script type="module" src="./scripts//utils//clearInput.js"></script>
-        <script type="module" src="./scripts//components//dropdown.js"></script>
+        <script type="module" src="./scripts/index.js"></script>
+        <!-- UI -->
+        <script type="module" src="./scripts/ui/recipeCard.js"></script>
+        <!-- Components -->
+        <script type="module" src="./scripts/components/card.js"></script>
+        <script type="module" src="./scripts/components/dropdown.js"></script>
+        <script type="module" src="./scripts/components/filters.js"></script>
+        <script type="module" src="./scripts/components/filterTags.js"></script>
+        <!-- Utils -->
+        <script type="module" src="./scripts/utils/formatData.js"></script>
 
     </body>
 
