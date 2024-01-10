@@ -33,6 +33,10 @@ function displayRecipes(recipes) {
   recipeCards.forEach((card) => {
     cardContainer.appendChild(card);
   });
+
+  // Mettre à jour le nombre de recettes
+  const numberOfRecipesDisplayed = document.querySelector('#numbersOfRecipes');
+  numberOfRecipesDisplayed.innerHTML = recipes.length;
 }
 
 /**

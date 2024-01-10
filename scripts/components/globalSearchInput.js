@@ -87,13 +87,13 @@ function searchRecipes() {
       allRecipes,
       globalInputValue
     );
-
-    recipesListToDisplay.length === 0
-      ? displayNoMatchMessage(true)
-      : displayNoMatchMessage(false);
   } else {
     recipesListToDisplay = allRecipes;
   }
+
+  recipesListToDisplay.length === 0
+    ? displayNoMatchMessage(true)
+    : displayNoMatchMessage(false);
 
   // ------ FILTRE RECETTES VIA LES TAGS ------
   // Si un tag est utilisé dans l'un des filtre
@@ -171,7 +171,6 @@ clearGlobalInputIcon.addEventListener('click', () => {
   globalSearchInput.value = '';
   manageClearGlobalInputIcon();
   searchRecipes();
-  displayNoMatchMessage(false);
 });
 
 export { searchRecipes };
