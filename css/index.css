@@ -83,6 +83,7 @@ body {
   position: absolute;
   right: 75px;
   display: none;
+  cursor: pointer;
 }
 
 /*container rechercher filters*/
