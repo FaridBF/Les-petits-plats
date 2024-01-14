@@ -5,8 +5,18 @@ General Rules * {
   font-family: 'Montserrat';
 }
 
+:root {
+  --color-primary: white;
+  --color-secondary: #ffd15b;
+  --color-black: #2e3333;
+  --color-dark-black: #1b1b1b;
+  --color-grey: #7a7a7a;
+  --color-grey-white: #ededed;
+  --color-red: #ff0000;
+}
+
 html {
-  background-color: #ededed;
+  background-color: var(--color-grey-white);
 }
 
 /*Afin que les images ne débordent jamais*/
@@ -22,8 +32,8 @@ body {
     'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: white;
-  color: #2e3333;
+  background: var(--color-primary);
+  color: var(--color-black);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +65,7 @@ body {
 }
 
 .title-header {
-  color: #ffd15b;
+  color: var(--color-secondary);
   display: flex;
   align-items: center;
   font-family: Anton;
@@ -86,13 +96,6 @@ body {
   cursor: pointer;
 }
 
-/*container rechercher filters*/
-
-/* .inputIconContainer {
-  display: flex;
-  align-items: center;
-} */
-
 .inputIconContainer {
   position: relative;
 }
@@ -110,13 +113,12 @@ body {
 
 .input-search {
   width: 954px;
-  height: 72px;
   border-radius: 11px;
-  color: #7a7a7a;
+  color: var(--color-grey);
   position: relative;
   font-weight: 400;
   font-size: 16px;
-  padding: 30px;
+  padding: 25px;
 }
 
 .container-icon {
@@ -127,7 +129,7 @@ body {
 }
 
 .icon-search {
-  background-color: #1b1b1b;
+  background-color: var(--color-dark-black);
   width: 51px;
   height: 52px;
   position: absolute;
@@ -137,7 +139,7 @@ body {
 }
 
 .main {
-  background-color: #ededed;
+  background-color: var(--color-grey-white);
   width: 100%;
   display: flex;
   height: 500px;
@@ -146,10 +148,9 @@ body {
 }
 
 .filter-top-main {
-  /* height: 100px; */
   width: 85%;
   display: flex;
-  background-color: #ededed;
+  background-color: var(--color-grey-white);
   align-items: center;
   justify-content: space-between;
   position: relative;
@@ -179,16 +180,12 @@ body {
   gap: 5px;
 }
 
-/* .tag-selected-ingredient { */
 .tag-selected-ingredient {
-  /* width: 203px; */
-  width: 185px;
   height: 53px;
-  background-color: #ffd15b;
+  background-color: var(--color-secondary);
   border-radius: 10px;
-  /* display: none; */
   list-style: none;
-  padding: 0 10;
+  padding: 0 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -215,7 +212,7 @@ p.selected-option-ingredient {
 
 .card-recipes-bottom-main {
   height: 800px;
-  background-color: #ededed;
+  background-color: var(--color-grey-white);
   width: 87%;
   display: flex;
   justify-content: space-between;
@@ -227,7 +224,7 @@ p.selected-option-ingredient {
   width: 380px;
   height: 680px;
   border-radius: 21px;
-  background-color: white;
+  background-color: var(--color-primary);
   margin-bottom: 50px;
 }
 
@@ -237,7 +234,7 @@ p.selected-option-ingredient {
 }
 
 .duration-recipes {
-  background-color: #ffd15b;
+  background-color: var(--color-secondary);
   border-radius: 20px;
   position: absolute;
   right: 10px;
@@ -259,12 +256,12 @@ p.selected-option-ingredient {
 .name-title-recipes {
   font-family: Anton;
   font-size: 18px;
-  color: #000000;
+  color: var(--color-dark-black);
 }
 
 .title-recipes,
 .title-ingredients {
-  color: #7a7a7a;
+  color: var(--color-grey);
   font-weight: 700;
   font-size: 12px;
 }
@@ -278,7 +275,7 @@ h5.title-ingredients {
 }
 
 .instructions-recipes {
-  color: #1b1b1b;
+  color: var(--color-dark-black);
   font-family: Manrope;
   font-size: 14px;
   font-weight: 400;
@@ -312,30 +309,29 @@ p.instructions-recipes {
 }
 
 .quantity-item-ingredients {
-  color: #7a7a7a;
+  color: var(--color-grey);
 }
 
 span.ingredient-quantity {
   font-size: 14px;
   font-weight: 400;
-  color: #7a7a7a;
+  color: var(--color-grey);
   font-family: Manrope;
 }
 
 /** dropdown**/
-/* Style du conteneur */
 .hide-ingredient {
-  /* TODO. pquoi important */
   max-height: 0 !important;
 }
 
-.dropdown-ingredient {
-  border: 0.1em solid white;
-  margin-bottom: 1em;
+.dropdown-ingredient,
+.dropdown-appliance,
+.dropdown-ustensil {
+  border: 0.1em solid var(--color-primary);
+  margin: 15px 0 1em;
   border-radius: 11px;
   cursor: pointer;
-  background-color: white;
-  margin-top: 15px;
+  background-color: var(--color-primary);
   width: 200px;
 }
 
@@ -346,9 +342,7 @@ span.ingredient-quantity {
 }
 
 .dropdown-ingredient .menu-ingredient .ingredient-option {
-  /* margin: 0.3em 0.3em 0.3em 0.3em; */
   margin-top: 0.3em;
-  /* padding: 15px; */
   padding-bottom: 10px;
   padding-left: 15px;
   padding-right: 15px;
@@ -356,12 +350,11 @@ span.ingredient-quantity {
 }
 
 .dropdown-ingredient .menu-ingredient .ingredient-option:hover {
-  background: #ffd15b;
+  background: var(--color-secondary);
   padding-bottom: 10px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 10px;
-  /* padding: 15px; */
 }
 
 .dropdown-ingredient .title-ingredient {
@@ -385,18 +378,12 @@ span.ingredient-quantity {
 .search-container {
   width: 100%;
   display: flex;
-  margin-bottom: 10px;
   justify-content: center;
 }
 
 .input-searchInputFilter {
-  width: 100%;
   padding: 8px;
 }
-
-/* .inputIconContainer {
-  position: relative;
-} */
 
 span.container-iconSearch {
   position: absolute;
@@ -442,19 +429,8 @@ span.container-iconSearch {
 }
 
 /** dropdown appliance**/
-/* Style du conteneur */
 .hide-appliance {
   max-height: 0 !important;
-}
-
-.dropdown-appliance {
-  border: 0.1em solid white;
-  margin-bottom: 1em;
-  border-radius: 11px;
-  cursor: pointer;
-  background-color: white;
-  margin-top: 15px;
-  width: 200px;
 }
 
 .dropdown-appliance .menu-appliance {
@@ -464,9 +440,7 @@ span.container-iconSearch {
 }
 
 .dropdown-appliance .menu-appliance .appliance-option {
-  /* margin: 0.3em 0.3em 0.3em 0.3em; */
   margin-top: 0.3em;
-  /* padding: 15px; */
   padding-bottom: 10px;
   padding-left: 15px;
   padding-right: 15px;
@@ -474,12 +448,11 @@ span.container-iconSearch {
 }
 
 .dropdown-appliance .menu-appliance .appliance-option:hover {
-  background: #ffd15b;
+  background: var(--color-secondary);
   padding-bottom: 10px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 10px;
-  /* padding: 15px; */
 }
 
 .dropdown-appliance .title-appliance {
@@ -508,13 +481,8 @@ span.container-iconSearch {
 }
 
 .input-searchInputFilterAppliance {
-  width: 100%;
   padding: 8px;
 }
-
-/* .inputIconContainerAppliance {
-  position: relative;
-} */
 
 span.container-iconSearchAppliance {
   position: absolute;
@@ -560,16 +528,6 @@ span.container-iconSearchAppliance {
 }
 
 /*container selected option APPLIANCE*/
-
-/* .container-selected-option-appliance {
-  width: 203px;
-  height: 53px;
-  background-color: #ffd15b;
-  border-radius: 10px;
-  display: none;
-} */
-
-/* *** */
 .wrapper-tag-selected-appliance {
   list-style: none;
   padding-left: 0;
@@ -579,19 +537,15 @@ span.container-iconSearchAppliance {
 }
 
 .tag-selected-appliance {
-  /* width: 203px; */
-  width: 185px;
   height: 53px;
-  background-color: #ffd15b;
+  background-color: var(--color-secondary);
   border-radius: 10px;
-  /* display: none; */
   list-style: none;
-  padding: 0 10;
+  padding: 0 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-/* *** */
 
 p.selected-option-appliance {
   display: flex;
@@ -611,19 +565,8 @@ p.selected-option-appliance {
 }
 
 /** dropdown ustensil**/
-/* Style du conteneur */
 .hide-ustensil {
   max-height: 0 !important;
-}
-
-.dropdown-ustensil {
-  border: 0.1em solid white;
-  margin-bottom: 1em;
-  border-radius: 11px;
-  cursor: pointer;
-  background-color: white;
-  margin-top: 15px;
-  width: 200px;
 }
 
 .dropdown-ustensil .menu-ustensil {
@@ -633,9 +576,7 @@ p.selected-option-appliance {
 }
 
 .dropdown-ustensil .menu-ustensil .ustensil-option {
-  /* margin: 0.3em 0.3em 0.3em 0.3em; */
   margin-top: 0.3em;
-  /* padding: 15px; */
   padding-bottom: 10px;
   padding-left: 15px;
   padding-right: 15px;
@@ -643,12 +584,11 @@ p.selected-option-appliance {
 }
 
 .dropdown-ustensil .menu-ustensil .ustensil-option:hover {
-  background: #ffd15b;
+  background: var(--color-secondary);
   padding-bottom: 10px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 10px;
-  /* padding: 15px; */
 }
 
 .dropdown-ustensil .title-ustensil {
@@ -677,13 +617,8 @@ p.selected-option-appliance {
 }
 
 .input-searchInputFilterUstensil {
-  width: 100%;
   padding: 8px;
 }
-
-/* .inputIconContainerUstensil {
-  position: relative;
-} */
 
 span.container-iconSearchUstensil {
   position: absolute;
@@ -721,23 +656,7 @@ span.container-iconSearchUstensil {
   transform: rotate(90deg);
 }
 
-/* .ustensil-option {
-  font-size: 14px;
-  line-height: 19.12px;
-  font-family: Manrope;
-  font-weight: 400;
-} */
-
 /*container selected option USTENSIL*/
-
-/* .container-selected-option-ustensil {
-  width: 203px;
-  height: 53px;
-  background-color: #ffd15b;
-  border-radius: 10px;
-  display: none;
-} */
-
 .wrapper-tag-selected-ustensil {
   list-style: none;
   padding-left: 0;
@@ -747,14 +666,11 @@ span.container-iconSearchUstensil {
 }
 
 .tag-selected-ustensil {
-  /* width: 203px; */
-  width: 185px;
   height: 53px;
-  background-color: #ffd15b;
+  background-color: var(--color-secondary);
   border-radius: 10px;
-  /* display: none; */
   list-style: none;
-  padding: 0 10;
+  padding: 0 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -778,7 +694,6 @@ p.selected-option-ustensil {
 }
 
 /*info no match message*/
-
 .container-info-no-match-message {
   display: flex;
   justify-content: center;
@@ -787,11 +702,11 @@ p.selected-option-ustensil {
 .info-no-match-message {
   display: flex;
   justify-content: center;
-  color: red;
+  color: var(--color-red);
   padding: 5px;
   font-weight: 500;
   font-size: 16px;
   border-radius: 5px;
-  background-color: white;
+  background-color: var(--color-primary);
   max-width: 940px;
 }
