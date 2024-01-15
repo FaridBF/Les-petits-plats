@@ -63,10 +63,10 @@ function fillIngredients(ingredients) {
             <p class="ingredient-name">${ingredient.ingredient}
             <span class="ingredient-quantity">${
               ingredient.quantity ? ingredient.quantity : ''
-            }<span/>
+            }</span>
             <span class="ingredient-unit">${
               ingredient.unit ? ingredient.unit : ''
-            }<span/>
+            }</span>
             </p>
           </div>
         `
