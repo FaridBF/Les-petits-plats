@@ -37,6 +37,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  min-width: 400px;
+  /* width: 100%; */
 }
 
 /*header*/
@@ -168,7 +171,7 @@ body {
   font-size: 20px;
   position: absolute;
   right: 0px;
-  top: 0px;
+  top: 5px;
 }
 
 /*container selected tag option INGREDIENT*/
@@ -709,4 +712,60 @@ p.selected-option-ustensil {
   border-radius: 5px;
   background-color: var(--color-primary);
   max-width: 940px;
+}
+
+/*Medias querries- Gestion du Responsive*/
+/* Styles pour les écrans jusqu'à 600 pixels de large */
+@media only screen and (max-width: 600px) {
+  .title-header {
+    font-size: 18px;
+  }
+  .input-search {
+    width: 225px;
+    font-size: 10px;
+  }
+  .container-filters {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .container-numbersOfRecipes {
+    position: relative;
+  }
+  .filter-top-main {
+    flex-direction: column;
+  }
+  .card-recipes-bottom-main {
+    justify-content: center;
+  }
+  .icon-search {
+    top: 6px;
+  }
+}
+
+/*Medias querries- Responsive*/
+/* Styles pour les écrans de 600 à 1000 pixels de large */
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  .input-search {
+    width: 350px;
+  }
+  .container-numbersOfRecipes {
+    left: 0px;
+    top: -35px;
+  }
+
+  .filter-top-main {
+    margin-top: 20px;
+  }
+}
+
+/*Medias querries - Responsive*/
+/* Styles pour les écrans de 1000 à 1400 pixels de large */
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
+  .title-header {
+    font-size: 20px;
+  }
+  .input-search {
+    width: 450px;
+  }
 }
