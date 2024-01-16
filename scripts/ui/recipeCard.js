@@ -93,7 +93,7 @@ export function fillRecipeCardTemplate(template, data) {
  * Effacer toutes les recettes affichées
  */
 function clearRecipes() {
-  cardContainer.innerHTML = '';
+  cardContainer.textContent = '';
 }
 
 export { clearRecipes };

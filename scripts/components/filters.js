@@ -72,9 +72,9 @@ function fillFilters(recipes) {
   const ustensilsSet = new Set();
 
   // Vider anciennes listes
-  ingredientFilterContainer.innerHTML = '';
-  applianceFilterContainer.innerHTML = '';
-  ustensilFilterContainer.innerHTML = '';
+  ingredientFilterContainer.textContent = '';
+  applianceFilterContainer.textContent = '';
+  ustensilFilterContainer.textContent = '';
 
   // Répertorier les listes de tags sélectionnés pour chaque filtre
   const ingredientTags = [
