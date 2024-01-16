@@ -72,9 +72,9 @@ function fillFilters(recipes) {
   const ustensilsSet = new Set();
 
   // Vider anciennes listes
-  ingredientFilterContainer.innerHTML = '';
-  applianceFilterContainer.innerHTML = '';
-  ustensilFilterContainer.innerHTML = '';
+  ingredientFilterContainer.textContent = '';
+  applianceFilterContainer.textContent = '';
+  ustensilFilterContainer.textContent = '';
 
   // Répertorier les listes de tags sélectionnés pour chaque filtre
   const ingredientTags = [
@@ -145,20 +145,26 @@ function fillFilters(recipes) {
   // Ingredients
   setIsAnyTagIngredientAdded(false);
   listenInputSearchFilter(
+    'Ingredient',
     'searchInputFilterIngredient',
-    '.container-option-ingredient li'
+    '.container-option-ingredient li',
+    'clearInputFilterIngredient'
   );
   // Appareils (appliance)
   setIsAnyTagApplianceAdded(false);
   listenInputSearchFilter(
+    'Appliance',
     'searchInputFilterAppliance',
-    '.container-option-appliance li'
+    '.container-option-appliance li',
+    'clearInputFilterAppliance'
   );
   // Ustensiles
   setIsAnyTagUstensilAdded(false);
   listenInputSearchFilter(
+    'Ustensil',
     'searchInputFilterUstensil',
-    '.container-option-ustensil li'
+    '.container-option-ustensil li',
+    'clearInputFilterUstensil'
   );
 }
 
