@@ -25,13 +25,14 @@ const clearGlobalInputIcon = document.querySelector('#clearInputNav');
 /**
  * Filtre les recettes en fonction du champs tapé par l'utilisateur dans la barre de recherche
  * @param {Object[]} recipesTofilter - Liste des recettes à filtrer
- * @param {string} inputValue - Valeur du champs dans la barre de recherche
+ * @param {string} inputValue - Valeur du champ dans la barre de recherche
  * @returns
  */
 function filterRecipesWithGlobalInput(recipesTofilter, inputValue) {
   const inputValueFormatted = inputValue.trim().toLowerCase();
 
-  const recipesListToDisplay = recipesTofilter.filter((recipe) => {
+  const recipesListToDisplay = [];
+  for (const recipe of recipesTofilter) {
     let recipeIsMatching = false;
     // Vérifie si la valeur saisie correspond à un titre, à la description ou à un ingrédient de la carte
     if (
@@ -40,14 +41,18 @@ function filterRecipesWithGlobalInput(recipesTofilter, inputValue) {
     ) {
       recipeIsMatching = true;
     }
-    recipe.ingredients.forEach(({ ingredient }) => {
+
+    for (const { ingredient } of recipe.ingredients) {
       const ingredientNameFormatted = ingredient.toLowerCase();
       if (ingredientNameFormatted.includes(inputValueFormatted)) {
         recipeIsMatching = true;
       }
-    });
-    return recipeIsMatching;
-  });
+    }
+
+    if (recipeIsMatching) {
+      recipesListToDisplay.push(recipe);
+    }
+  }
   return recipesListToDisplay;
 }
 
@@ -60,22 +65,14 @@ function searchRecipes() {
   let globalInputValue;
 
   // Pour chaque filtre, lister les tags sélectionnés
-  const ingredientTagsList = Array.from(
-    document.querySelectorAll(
-      '.wrapper-tag-selected-ingredient .tag-selected-ingredient'
-    )
+  const ingredientTagsList = document.querySelectorAll(
+    '.wrapper-tag-selected-ingredient .tag-selected-ingredient'
   );
-
-  const applianceTagsList = Array.from(
-    document.querySelectorAll(
-      '.wrapper-tag-selected-appliance .tag-selected-appliance'
-    )
+  const applianceTagsList = document.querySelectorAll(
+    '.wrapper-tag-selected-appliance .tag-selected-appliance'
   );
-
-  const ustensilTagsList = Array.from(
-    document.querySelectorAll(
-      '.wrapper-tag-selected-ustensil .tag-selected-ustensil'
-    )
+  const ustensilTagsList = document.querySelectorAll(
+    '.wrapper-tag-selected-ustensil .tag-selected-ustensil'
   );
 
   // ------ FILTRE RECETTES VIA INPUT DE LA RECHERCHE GLOBALE ------
@@ -106,9 +103,9 @@ function searchRecipes() {
 
     recipesListToDisplay = filterRecipesWithTags(
       recipesListToDisplay,
-      ingredientTagsList,
-      applianceTagsList,
-      ustensilTagsList
+      Array.from(ingredientTagsList),
+      Array.from(applianceTagsList),
+      Array.from(ustensilTagsList)
     );
   }
 
