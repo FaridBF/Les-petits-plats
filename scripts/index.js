@@ -1,6 +1,5 @@
 import RecipeApi from './api/Api.js';
-import { fillRecipeCardTemplate, recipeCardTemplate } from './ui/recipeCard.js';
-import { cardContainer } from './ui/recipeCard.js';
+import { fillIngredients } from './ui/recipeCard.js';
 import { fillFilters } from './components/filters.js';
 /**
  * ------------
@@ -17,26 +16,83 @@ let recipes = [];
  */
 
 /**
+ * Conteneur de toutes les recettes
+ */
+const cardContainer = document.querySelector('.card-recipes-bottom-main');
+
+/**
+ * ------------
+ * FONCTIONS
+ * ------------
+ */
+
+/**
  * Crée des 'card HTML' pour chaque recette et les ajoute au conteneur
  * @param {Object[]} recipes - Liste des recettes à afficher
  */
 function displayRecipes(recipes) {
-  const recipeCards = recipes.map((recipe) => {
-    const filledTemplate = fillRecipeCardTemplate(recipeCardTemplate, recipe);
-    const card = document.createElement('div');
-    // card.innerHTML = filledTemplate;
-    card.insertAdjacentHTML('beforeend', filledTemplate);
-    return card;
-  });
-
   // Ajoute les cartes au conteneur
-  recipeCards.forEach((card) => {
+  recipes.forEach((recipe) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const containerTop = document.createElement('div');
+    containerTop.classList.add('container-top');
+
+    const img = document.createElement('img');
+    img.classList.add('img-recipes');
+    img.src = `assets/recipes/Recette${recipe.id}.jpg`;
+    img.alt = 'recipes';
+
+    const duration = document.createElement('span');
+    duration.classList.add('duration-recipes');
+    duration.textContent = `${recipe.time}min`;
+
+    containerTop.appendChild(img);
+    containerTop.appendChild(duration);
+
+    const containerBottom = document.createElement('div');
+    containerBottom.classList.add('container-bottom');
+
+    const nameTitle = document.createElement('h3');
+    nameTitle.classList.add('name-title-recipes');
+    nameTitle.textContent = recipe.name;
+
+    const recipeTitle = document.createElement('h4');
+    recipeTitle.classList.add('title-recipes');
+    recipeTitle.textContent = 'Recette';
+
+    const instructions = document.createElement('p');
+    instructions.classList.add('instructions-recipes');
+    instructions.textContent = recipe.description;
+
+    const containerIngredients = document.createElement('div');
+    containerIngredients.classList.add('container-ingredients');
+
+    const ingredientsTitle = document.createElement('h5');
+    ingredientsTitle.classList.add('title-ingredients');
+    ingredientsTitle.textContent = 'Ingrédients';
+
+    const allItemsIngredients = document.createElement('div');
+    allItemsIngredients.classList.add('all-items-ingredients');
+    allItemsIngredients.innerHTML = fillIngredients(recipe.ingredients);
+
+    containerIngredients.appendChild(ingredientsTitle);
+    containerIngredients.appendChild(allItemsIngredients);
+
+    containerBottom.appendChild(nameTitle);
+    containerBottom.appendChild(recipeTitle);
+    containerBottom.appendChild(instructions);
+    containerBottom.appendChild(containerIngredients);
+
+    card.appendChild(containerTop);
+    card.appendChild(containerBottom);
+
     cardContainer.appendChild(card);
   });
 
   // Mettre à jour le nombre de recettes
   const numberOfRecipesDisplayed = document.querySelector('#numbersOfRecipes');
-  // console.log('numberOfRecipesDisplayed', numberOfRecipesDisplayed);
   numberOfRecipesDisplayed.textContent = recipes.length;
 }
 
@@ -61,4 +117,4 @@ recipeApi
     );
   });
 
-export { displayRecipes, recipes };
+export { cardContainer, displayRecipes, recipes };

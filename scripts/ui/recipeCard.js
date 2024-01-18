@@ -6,45 +6,6 @@
 
 /**
  * ------------
- * CONSTANTES
- * ------------
- */
-
-/**
- * Template HTML pour une carte de recette.
- * @type {string}
- */
-export const recipeCardTemplate = `
-    <div class="card">
-      <div class="container-top">
-        <img class="img-recipes" src="assets/recipes/Recette{{id}}.jpg" alt="recipes" />
-        <span class="duration-recipes">{{time}}min</span>
-      </div>
-      <div class="container-bottom">
-        <h3 class="name-title-recipes">{{name}}</h3>
-        <div>
-          <h4 class="title-recipes">Recette</h4>
-          <p class="instructions-recipes">{{description}}</p>
-        </div>
-        <div class="container-ingredients">
-          <h5 class="title-ingredients">Ingrédients</h5>
-          <div class="all-items-ingredients">
-            {{ingredients}}
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
-/**
- * Conteneur de toutes les recettes
- */
-export const cardContainer = document.querySelector(
-  '.card-recipes-bottom-main'
-);
-
-/**
- * ------------
  * FONCTIONS
  * ------------
  */
@@ -96,4 +57,4 @@ function clearRecipes() {
   cardContainer.textContent = '';
 }
 
-export { clearRecipes };
+export { fillIngredients, clearRecipes };
