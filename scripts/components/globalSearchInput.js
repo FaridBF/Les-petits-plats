@@ -55,7 +55,6 @@ function filterRecipesWithGlobalInput(recipesTofilter, inputValue) {
  * Recherche les recettes en prenant en compte le champ de recherche globale et les filtres
  */
 function searchRecipes() {
-  let isAnyTagSelected = false;
   let recipesListToDisplay = [];
   let globalInputValue;
 
@@ -102,8 +101,6 @@ function searchRecipes() {
     applianceTagsList.length > 0 ||
     ustensilTagsList.length > 0
   ) {
-    isAnyTagSelected = true;
-
     recipesListToDisplay = filterRecipesWithTags(
       recipesListToDisplay,
       ingredientTagsList,
