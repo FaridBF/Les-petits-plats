@@ -42,8 +42,9 @@ function manageClearInputIcon(inputId) {
     .nextElementSibling.querySelector('img.closeInputFilter');
   const searchInputValue = searchInput.value;
 
-  clearInputIcon.style.display =
-    searchInputValue.length > 0 ? 'inline' : 'none';
+  const isClearInputVisible = searchInputValue.length > 0;
+
+  clearInputIcon.style.display = isClearInputVisible ? 'inline' : 'none';
 }
 
 /**

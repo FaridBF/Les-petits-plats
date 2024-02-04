@@ -23,9 +23,9 @@ const clearGlobalInputIcon = document.querySelector('#clearInputNav');
  */
 
 /**
- * Filtre les recettes en fonction du champs tapé par l'utilisateur dans la barre de recherche
+ * Filtre les recettes en fonction du champ saisi par l'utilisateur dans la barre de recherche
  * @param {Object[]} recipesTofilter - Liste des recettes à filtrer
- * @param {string} inputValue - Valeur du champs dans la barre de recherche
+ * @param {string} inputValue - Valeur du champ dans la barre de recherche
  * @returns
  */
 function filterRecipesWithGlobalInput(recipesTofilter, inputValue) {
